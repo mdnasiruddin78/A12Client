@@ -6,6 +6,7 @@ import SocialLogin from "../../Components/SocialLogin";
 
 
 const Register = () => {
+    
     const { createUser, updateUserProfile,setUser } = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
@@ -22,6 +23,7 @@ const Register = () => {
                         console.log('profile update successfull')
                     })
                     .catch(error => console.log(error))
+                    reset()
                     navigate("/")
             })
     }
