@@ -5,11 +5,22 @@ import { authContext } from "../../Provider/Authprovider";
 
 
 const Register = () => {
-    const {createUser,updateUserProfile} = useContext(authContext)
+    const { createUser, updateUserProfile,setUser } = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const onSubmit = data => {
         console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                // setUser(result.user,data.name , data.photoURL)
+                updateUserProfile(data.name, data.photo)
+                    .then(result => {
+                        console.log('profile update successfull')
+                    })
+                    .catch(error => console.log(error))
+            })
     }
     return (
         <div className='flex justify-center items-center bg-base-200'>
