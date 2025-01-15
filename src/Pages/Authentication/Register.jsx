@@ -13,12 +13,11 @@ const Register = () => {
             {/* <Helmet>
                 <title>REGISTER-PAGE</title>
             </Helmet> */}
-            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg border-2 border-black'>
+            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg border-2 border-purple-600'>
                 <div className='w-full px-6 py-8 md:px-8'>
                     <div className='flex justify-center mx-auto'>
                         <img className='w-auto h-7 sm:h-8' src="" alt='' />
                     </div>
-
                     <p className='mt-3 text-xl text-center text-gray-600 '>
                         Register Now!
                     </p>

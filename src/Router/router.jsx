@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Membership from "../Pages/Membership";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
+import Notification from "../Pages/Notification";
 
 
   const router = createBrowserRouter([
@@ -30,6 +31,10 @@ import Register from "../Pages/Authentication/Register";
         {
           path: "/register",
           element: <Register></Register>,
+        },
+        {
+          path: "/notification",
+          element: <Notification></Notification>
         }
       ]
     },
