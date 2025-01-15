@@ -9,14 +9,14 @@ const Home = () => {
             <section>
                 <Searchbox></Searchbox>
             </section>
-            <main className='w-11/12 mx-auto grid md:grid-cols-12 gap-3'>
-                <aside className='left col-span-3'>
+            <main className='w-11/12 mx-auto grid lg:grid-cols-12 md:grid-cols-12 grid-cols-1 gap-4'>
+                <aside className='left lg:col-span-3 md:col-span-3'>
                     <LeftNavbar></LeftNavbar>
                 </aside>
-                <section className='col-span-6'>
+                <section className='lg:col-span-6 md:col-span-6'>
                     center section
                 </section>
-                <aside className='right col-span-3'>
+                <aside className='right lg:col-span-3 md:col-span-3'>
                     <RightNavbar></RightNavbar>
                 </aside>
             </main>

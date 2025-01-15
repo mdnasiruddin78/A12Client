@@ -8,6 +8,7 @@ import Membership from "../Pages/Membership";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import Notification from "../Pages/Notification";
+import Dashboard from "../Pages/Dashboard";
 
 
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ import Notification from "../Pages/Notification";
         }
       ]
     },
+    {
+      path: "/dashboard",
+      element: <Dashboard></Dashboard>
+    }
   ]);
 
   export default router;

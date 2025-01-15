@@ -22,7 +22,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex justify-between items-center lg:px-7 px-4 py-2 bg-purple-300">
+        <div className="flex justify-between items-center backdrop-blur bg-purple-300 lg:px-7 px-4 py-2">
             <div className="hidden lg:flex md:flex">
                 <Link to="/"><img className="h-10 rounded-md" src={logo} alt="" /></Link>
             </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-5">
                 <NavLink to='/' className='font-bold lg:flex md:flex hidden'>Home</NavLink>
                 <NavLink to='/membership' className='font-bold lg:flex md:flex hidden'>Membership</NavLink>
-                <NavLink to='/notification'><IoNotifications className='text-2xl' /></NavLink>
+                <NavLink to='/notification'><IoNotifications className='text-2xl ' /></NavLink>
             </div>
             <div>
                 {

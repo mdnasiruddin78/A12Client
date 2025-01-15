@@ -5,8 +5,12 @@ import Navbar from "../Components/Navbar";
 const Mainlayout = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
+            <nav className='sticky top-0 z-50'>
+                <Navbar></Navbar>
+            </nav>
+            <section>
+                <Outlet></Outlet>
+            </section>
         </div>
     );
 };
