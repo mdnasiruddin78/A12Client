@@ -41,7 +41,7 @@ const Navbar = () => {
             <div>
                 {
                     user && user?.email ? <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="no" /></div>
+                        <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                             <li><a><button onClick={handleLogout}>logout</button></a></li>
                             <li><a>Item 2</a></li>
