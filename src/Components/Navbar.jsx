@@ -42,9 +42,10 @@ const Navbar = () => {
                 {
                     user && user?.email ? <div className="dropdown dropdown-end">
                         <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
-                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                            <li><a><button onClick={handleLogout}>logout</button></a></li>
-                            <li><a>Item 2</a></li>
+                        <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
+                            <li><h3 className="font-bold">{user?.displayName}</h3></li>
+                            <li><Link to="/dashboard">Dashboard</Link></li>
+                            <li><a><button className="font-bold" onClick={handleLogout}>Logout</button></a></li>
                         </ul>
                     </div>
                         :

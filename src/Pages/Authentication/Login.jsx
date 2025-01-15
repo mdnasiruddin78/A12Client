@@ -1,14 +1,16 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Provider/Authprovider";
 import SocialLogin from "../../Components/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
 
     const {signInUser} = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate()
 
     const onSubmit = data => {
         console.log(data)
@@ -18,14 +20,14 @@ const Login = () => {
         })
         .catch(error => console.log(error))
         reset()
-        // navigate("/")
+        navigate("/")
     }
 
     return (
         <div className='flex justify-center items-center bg-base-200'>
-            {/* <Helmet>
+            <Helmet>
                 <title>LOGIN-PAGE</title>
-            </Helmet> */}
+            </Helmet>
             <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg border-2 border-black my-10 '>
                 <div className='w-full px-6 py-8 md:px-8 '>
                     <div className='flex justify-center mx-auto'>
