@@ -5,11 +5,13 @@ import { authContext } from "../../Provider/Authprovider";
 import SocialLogin from "../../Components/SocialLogin";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
 
 const Register = () => {
 
-    const { createUser, updateUserProfile, setUser, logoutUser } = useContext(authContext)
+    const axiosPublic = UseAxiosPublic()
+    const { createUser, updateUserProfile, logoutUser } = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
 
@@ -19,16 +21,28 @@ const Register = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                // setUser(result.user,data.name , data.photoURL)
                 updateUserProfile(data.name, data.photo)
                     .then(result => {
-                        console.log('profile update successfull')
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email,
+                        }
+                        // create user in the database
+                        axiosPublic.post('/users',userInfo)
+                        .then(res => {
+                            if(res.data.insertedId){
+                                console.log('user added in database')
+                                reset()
+                                toast.success('Registration Successfull Please Login');
+                            }
+                        })
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => {
+                        console.log(error)
+                        toast.success(error.message);
+                    })
                 logoutUser()
-                reset()
                 navigate("/login")
-                toast.success('Registration Successfull Please Login');
             })
     }
     // https://i.ibb.co.com/94WfS9M/boy2.jpg

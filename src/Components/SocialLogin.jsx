@@ -2,32 +2,34 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
+import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 
 
 const SocialLogin = () => {
 
-    const {googleSignIn,setUser} = useContext(authContext)
+    const { googleSignIn, setUser } = useContext(authContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosPublic = UseAxiosPublic();
 
     const handleGooleLogin = () => {
         googleSignIn()
-        .then(result =>{
-            console.log(result.user);
-            const user = result.user;
-            setUser(user)
-            navigate(location?.state? location.state : '/')
-            toast.success('GoogleLogin successfull')
-            // const userInfo = {
-            //     email: result.user?.email,
-            //     name: result.user?.displayName
-            // }
-            // axiosPublic.post('/users', userInfo)
-            // .then(res =>{
-            //     console.log(res.data);
-            //     navigate('/');
-            // })
-        })
+            .then(result => {
+                console.log(result.user);
+                const user = result.user;
+                setUser(user)
+                navigate(location?.state ? location.state : '/')
+                toast.success('GoogleLogin successfull')
+                const userInfo = {
+                    email: result.user?.email,
+                    name: result.user?.displayName
+                }
+                axiosPublic.post('/users', userInfo)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate('/');
+                    })
+            })
     }
 
     return (

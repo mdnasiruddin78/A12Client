@@ -5,6 +5,7 @@ import { HiMiniUsers } from "react-icons/hi2";
 import { IoNotifications } from "react-icons/io5";
 import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 
 
 const Dashboard = () => {
@@ -12,6 +13,9 @@ const Dashboard = () => {
         <div className="lg:flex md:flex">
             {/* dashboard side bar */}
             <div className="lg:w-64 md:w-64 min-h-screen bg-purple-300">
+                <div className="flex justify-center py-5">
+                    <img className="h-10 rounded-md" src={logo} alt="" />
+                </div>
                 <ul className="menu p-4">
                     {
                         isAdmin ? <>

@@ -23,7 +23,10 @@ const Login = () => {
             navigate(location?.state? location.state : '/')
             toast.success('Login Successfull')
         })
-        .catch(error => console.log(error))
+        .catch(error => {
+            console.log(error)
+            toast.success(error.message)
+        })
         reset()
     }
 
