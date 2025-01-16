@@ -1,26 +1,30 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Provider/Authprovider";
 import SocialLogin from "../../Components/SocialLogin";
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
 
-    const {signInUser} = useContext(authContext)
+    const {signInUser,setUser} = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
+    const location = useLocation()
 
     const onSubmit = data => {
         console.log(data)
         signInUser(data.email, data.password)
         .then(result => {
-            console.log('profile update successfull')
+            const user = result.user;
+            setUser(user)
+            navigate(location?.state? location.state : '/')
+            toast.success('Login Successfull')
         })
         .catch(error => console.log(error))
         reset()
-        navigate("/")
     }
 
     return (

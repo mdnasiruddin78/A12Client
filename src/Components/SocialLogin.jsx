@@ -1,18 +1,23 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../Provider/Authprovider";
+import toast from "react-hot-toast";
 
 
 const SocialLogin = () => {
 
-    const {googleSignIn} = useContext(authContext)
+    const {googleSignIn,setUser} = useContext(authContext)
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleGooleLogin = () => {
         googleSignIn()
         .then(result =>{
             console.log(result.user);
-            navigate('/');
+            const user = result.user;
+            setUser(user)
+            navigate(location?.state? location.state : '/')
+            toast.success('GoogleLogin successfull')
             // const userInfo = {
             //     email: result.user?.email,
             //     name: result.user?.displayName

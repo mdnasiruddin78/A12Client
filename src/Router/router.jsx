@@ -9,6 +9,7 @@ import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
 import Notification from "../Pages/Notification";
 import Dashboard from "../Pages/Dashboard";
+import Privateroute from "./Privateroute";
 
 
   const router = createBrowserRouter([
@@ -41,7 +42,7 @@ import Dashboard from "../Pages/Dashboard";
     },
     {
       path: "/dashboard",
-      element: <Dashboard></Dashboard>
+      element: <Privateroute><Dashboard></Dashboard></Privateroute>,
     }
   ]);
 
