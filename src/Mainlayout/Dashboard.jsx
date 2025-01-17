@@ -20,20 +20,20 @@ const Dashboard = () => {
                 </div>
                 <p className="font-bold text-center">Dashboard</p>
                 <ul className="menu">
-                    {/* {
-                        isAdmin ? <> */}
+                    {
+                        isAdmin ? <>
                             <li><NavLink to="adminProfile"><MdAdminPanelSettings />Admin Profile</NavLink></li>
                             <li><NavLink to="manageUser"><HiMiniUsers />Manage Users</NavLink></li>
                             <li><NavLink to="reportedComment"><MdReport />Reported Comments</NavLink></li>
                             <li><NavLink to="makeAnnouncement"><MdAnnouncement />Make Announcement</NavLink></li>
-                        {/* </>
+                        </>
                             :
                             <>
                                 <li><NavLink to="myprofile"><CgProfile />My Profile</NavLink></li>
                                 <li><NavLink to="addpost"><MdOutlinePhoneAndroid />Add Post</NavLink></li>
                                 <li><NavLink to="mypost"><BsFillPostcardFill />My Posts</NavLink></li>
                             </>
-                    } */}
+                    }
                     {/* shared nav links */}
                     <div className="divider"></div>
                     <li><NavLink to="/"> <FaHome></FaHome>Home</NavLink></li>
