@@ -8,7 +8,6 @@ import Home from "../Pages/Home";
 import Membership from "../Pages/Membership";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
-import Notification from "../Pages/Notification";
 import Privateroute from "./Privateroute";
 import MyProfile from "../Pages/Dashboard/MyProfile";
 import Addpost from "../Pages/Dashboard/Addpost";
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
-      {
-        path: "/notification",
-        element: <Notification></Notification>
-      }
     ]
   },
   {

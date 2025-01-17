@@ -5,16 +5,20 @@ import { useContext } from "react";
 import { authContext } from "../Provider/Authprovider";
 import './index.css/index.css';
 import { HiMenuAlt1 } from "react-icons/hi";
+import { FiLogOut } from "react-icons/fi";
+import toast from "react-hot-toast";
+import UseNotification from "../Hooks/UseNotification";
 
 
 const Navbar = () => {
 
     const { user, logoutUser } = useContext(authContext)
+    const [notificaion] = UseNotification() 
 
     const handleLogout = () => {
         logoutUser()
             .then(result => {
-                // console.log(result)
+                toast.success('Logout Successfull')
             })
             .catch(error => {
                 // console.log(error)
@@ -35,7 +39,7 @@ const Navbar = () => {
                 <div className="flex items-center space-x-5">
                     <NavLink to='/' className='font-bold lg:flex md:flex hidden'>Home</NavLink>
                     <NavLink to='/membership' className='font-bold lg:flex md:flex hidden'>Membership</NavLink>
-                    <NavLink to='/notification'><IoNotifications className='text-2xl ' /></NavLink>
+                    <div className="flex items-center text-xl"><IoNotifications/>{notificaion.length}</div>
                 </div>
             </div>
             <div>
@@ -45,7 +49,7 @@ const Navbar = () => {
                         <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
                             <li><h3 className="font-bold">{user?.displayName}</h3></li>
                             <li><Link to="/dashboard">Dashboard</Link></li>
-                            <li><a><button className="font-bold" onClick={handleLogout}>Logout</button></a></li>
+                            <li><a><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut className="mr-2"/>Logout</button></a></li>
                         </ul>
                     </div>
                         :

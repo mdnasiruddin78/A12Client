@@ -8,10 +8,26 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 import UseAdmin from "../Hooks/UseAdmin";
 import { Helmet } from "react-helmet-async";
+import { FiLogOut } from "react-icons/fi";
+import { useContext } from "react";
+import { authContext } from "../Provider/Authprovider";
 
 
 const Dashboard = () => {
+
     const [isAdmin] = UseAdmin()
+    const { logoutUser } = useContext(authContext)
+
+    const handleLogout = () => {
+        logoutUser()
+            .then(result => {
+                toast.success('Logout Successfull')
+            })
+            .catch(error => {
+                // console.log(error)
+            })
+    }
+
     return (
         <div className="lg:flex md:flex">
             <Helmet>
@@ -42,7 +58,8 @@ const Dashboard = () => {
                     <div className="divider"></div>
                     <li><NavLink to="/"> <FaHome></FaHome>Home</NavLink></li>
                     <li><NavLink to="/membership"><MdCardMembership />Membership</NavLink></li>
-                    <li><NavLink to="/notification"><IoNotifications />Notification</NavLink></li>
+                    <li><div><IoNotifications />Notification</div></li>
+                    <li><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut />Logout</button></li>
                 </ul>
             </div>
             {/* dashboard content */}

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { authContext } from "../Provider/Authprovider";
 import UseAdmin from "../Hooks/UseAdmin";
+import Loading from "../Components/Loading";
 
 
 const AdminRoute = ({children}) => {
@@ -11,7 +12,7 @@ const AdminRoute = ({children}) => {
     const location = useLocation();
 
     if (loading || isAdminLoading) {
-        return <progress className="progress w-56"></progress>
+        return <Loading></Loading>
     }
 
     if (user && isAdmin) {
