@@ -6,9 +6,11 @@ import { IoNotifications } from "react-icons/io5";
 import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
+import UseAdmin from "../Hooks/UseAdmin";
 
 
 const Dashboard = () => {
+    const [isAdmin] = UseAdmin()
     return (
         <div className="lg:flex md:flex">
             {/* dashboard side bar */}

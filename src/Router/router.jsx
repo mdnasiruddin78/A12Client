@@ -18,6 +18,7 @@ import AdminProfile from "../Pages/Dashboard/AdminProfile";
 import ManageUser from "../Pages/Dashboard/ManageUser";
 import ReportedComment from "../Pages/Dashboard/ReportedComment";
 import MakeAnnounce from "../Pages/Dashboard/MakeAnnounce";
+import AdminRoute from "./AdminRoute";
 
 
 const router = createBrowserRouter([
@@ -68,19 +69,19 @@ const router = createBrowserRouter([
       // admin only routes
       {
         path: "adminProfile",
-        element: <AdminProfile></AdminProfile>,
+        element: <AdminRoute><AdminProfile></AdminProfile></AdminRoute>,
       },
       {
         path: "manageUser",
-        element: <ManageUser></ManageUser>,
+        element: <AdminRoute><ManageUser></ManageUser></AdminRoute>,
       },
       {
         path: "reportedComment",
-        element: <ReportedComment></ReportedComment>,
+        element: <AdminRoute><ReportedComment></ReportedComment></AdminRoute>,
       },
       {
         path: "makeAnnouncement",
-        element: <MakeAnnounce></MakeAnnounce>,
+        element: <AdminRoute><MakeAnnounce></MakeAnnounce></AdminRoute>,
       },
     ]
   }
