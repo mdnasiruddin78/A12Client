@@ -23,14 +23,30 @@ const ManageUser = () => {
     })
 
     const handleMakeAdmin = (user) => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.modifiedCount > 0) {
-                    refetch()
-                    toast.success(`${user.name} is an Admin Now!`)
-                }
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: `You want to Make Admin ${user?.name}!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes,Make Admin!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/admin/${user._id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.modifiedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Success!",
+                                text: `${user?.name} is Admin Now!`,
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     const handleDeleteUser = (user) => {
