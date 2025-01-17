@@ -1,11 +1,11 @@
-import { useQuery, useQueryClient} from "@tanstack/react-query";
+import { QueryClient, useQuery} from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 
 const ManageUser = () => {
-
+    
     const axiosSecure = UseAxiosSecure()
-    const {data: users = []} = useQueryClient({
+    const {data: users = []} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
