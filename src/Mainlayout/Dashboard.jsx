@@ -13,10 +13,11 @@ const Dashboard = () => {
         <div className="lg:flex md:flex">
             {/* dashboard side bar */}
             <div className="lg:w-64 md:w-64 min-h-screen bg-purple-300">
-                <div className="flex justify-center py-5">
+                <div className="flex justify-center lg:mt-3">
                     <img className="h-10 rounded-md" src={logo} alt="" />
                 </div>
-                <ul className="menu p-4">
+                <p className="font-bold text-center">Dashboard</p>
+                <ul className="menu">
                     {/* {
                         isAdmin ? <> */}
                             <li><NavLink to="adminProfile"><MdAdminPanelSettings />Admin Profile</NavLink></li>
