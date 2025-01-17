@@ -2,15 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { MdAdminPanelSettings } from "react-icons/md";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
+import { RiDeleteBin5Line } from "react-icons/ri";
+import Swal from "sweetalert2";
 
 
 const ManageUser = () => {
 
     const axiosSecure = UseAxiosSecure()
-    const { data: users = [] ,refetch } = useQuery({
+    const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users',{
+            const res = await axiosSecure.get('/users', {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('access-token')}`
                 }
@@ -21,17 +24,47 @@ const ManageUser = () => {
 
     const handleMakeAdmin = (user) => {
         axiosSecure.patch(`/users/admin/${user._id}`)
-        .then(res => {
-            console.log(res.data)
-            if(res.data.modifiedCount > 0){
-                refetch()
-                toast.success(`${user.name} is an Admin Now!`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    refetch()
+                    toast.success(`${user.name} is an Admin Now!`)
+                }
+            })
+    }
+
+    const handleDeleteUser = (user) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `You want to delete ${user?.name}!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/users/${user?._id}`)
+                    .then(res => {
+                        console.log(res.data)
+                        if (res.data.deletedCount > 0) {
+                            refetch()
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: `${user?.name} has been deleted.`,
+                                icon: "success"
+                            });
+                        }
+                    })
             }
-        })
+        });
     }
 
     return (
         <div>
+            <Helmet>
+                <title>MANAGE-USERS</title>
+            </Helmet>
             <div className="flex justify-around">
                 <h3 className="text-xl font-semibold">All Users</h3>
                 <h3 className="text-xl font-semibold">Total Users: {users.length}</h3>
@@ -46,7 +79,8 @@ const ManageUser = () => {
                             <th>User Name</th>
                             <th>User email</th>
                             <th>Make admin</th>
-                            <th>Subscription Status</th>
+                            <th>Membership</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,21 +91,24 @@ const ManageUser = () => {
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
-                                        <div className="font-bold">{user?.name}</div>
+                                        <div className="font-semibold">{user?.name}</div>
                                     </div>
                                 </td>
-                                <td>
+                                <td className="text-gray-500 font-semibold">
                                     {user?.email}
                                 </td>
                                 <td>
-                                   {
-                                        user.role === 'admin' ?  <button className="btn btn-ghost btn-xs bg-green-500">Admin</button>
-                                        :  
-                                        <button onClick={()=>handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-sky-500"><MdAdminPanelSettings className="text-2xl" /></button>
-                                   }
+                                    {
+                                        user.role === 'admin' ? <button className="btn btn-ghost btn-xs bg-green-500">Admin</button>
+                                            :
+                                            <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-sky-500"><MdAdminPanelSettings className="text-2xl" /></button>
+                                    }
                                 </td>
                                 <th>
                                     <button className="btn btn-ghost btn-xs">details</button>
+                                </th>
+                                <th>
+                                    <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost btn-xs"><RiDeleteBin5Line className="text-2xl text-red-600" /></button>
                                 </th>
                             </tr>
                             )

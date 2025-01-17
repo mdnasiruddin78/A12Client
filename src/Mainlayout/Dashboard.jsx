@@ -7,12 +7,16 @@ import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneA
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 import UseAdmin from "../Hooks/UseAdmin";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
     const [isAdmin] = UseAdmin()
     return (
         <div className="lg:flex md:flex">
+            <Helmet>
+                <title>DASHBOARD</title>
+            </Helmet>
             {/* dashboard side bar */}
             <div className="lg:w-64 md:w-64 min-h-screen bg-purple-300">
                 <div className="flex justify-center lg:mt-3">

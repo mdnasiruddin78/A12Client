@@ -49,7 +49,7 @@ const Register = () => {
     return (
         <div className='flex justify-center items-center bg-base-200'>
             <Helmet>
-                <title>REGISTER-PAGE</title>
+                <title>BLOG-SPACE | REGISTER</title>
             </Helmet>
             <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg border-2 border-black my-10'>
                 <div className='w-full px-6 py-8 md:px-8'>
