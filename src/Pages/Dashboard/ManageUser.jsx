@@ -1,17 +1,30 @@
-import { QueryClient, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { MdAdminPanelSettings } from "react-icons/md";
+import toast from "react-hot-toast";
 
 
 const ManageUser = () => {
 
     const axiosSecure = UseAxiosSecure()
-    const { data: users = [] } = useQuery({
+    const { data: users = [] ,refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
             return res.data;
         }
     })
+
+    const handleMakeAdmin = (user) => {
+        axiosSecure.patch(`/users/admin/${user._id}`)
+        .then(res => {
+            console.log(res.data)
+            if(res.data.modifiedCount > 0){
+                refetch()
+                toast.success(`${user.name} is an Admin Now!`)
+            }
+        })
+    }
 
     return (
         <div>
@@ -34,19 +47,25 @@ const ManageUser = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user,index) => <tr key={user._id}>
+                            users.map((user, index) => <tr key={user._id}>
                                 <th>
                                     {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
-                                    <div className="font-bold">{user?.name}</div>
+                                        <div className="font-bold">{user?.name}</div>
                                     </div>
                                 </td>
                                 <td>
-                                   {user?.email}
+                                    {user?.email}
                                 </td>
-                                <td><button className="btn btn-ghost btn-xs">Admin</button></td>
+                                <td>
+                                   {
+                                        user.role === 'admin' ?  <button className="btn btn-ghost btn-xs bg-green-500">Admin</button>
+                                        :  
+                                        <button onClick={()=>handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-sky-500"><MdAdminPanelSettings className="text-2xl" /></button>
+                                   }
+                                </td>
                                 <th>
                                     <button className="btn btn-ghost btn-xs">details</button>
                                 </th>

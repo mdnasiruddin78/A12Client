@@ -28,21 +28,21 @@ const Register = () => {
                             email: data.email,
                         }
                         // create user in the database
-                        axiosPublic.post('/users',userInfo)
-                        .then(res => {
-                            if(res.data.insertedId){
-                                console.log('user added in database')
-                                reset()
-                                toast.success('Registration Successfull Please Login');
-                            }
-                        })
-                    })
-                    .catch(error => {
-                        console.log(error)
-                        toast.success(error.message);
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('user added in database')
+                                    reset()
+                                    toast.success('Registration Successfull Please Login');
+                                }
+                            })
                     })
                 logoutUser()
                 navigate("/login")
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error(error.message);
             })
     }
     // https://i.ibb.co.com/94WfS9M/boy2.jpg
