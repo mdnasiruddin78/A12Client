@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')).render(
           <RouterProvider router={router} />
         </Authprovider>
       </QueryClientProvider>
-      <Toaster containerStyle={{ top: 100 }} toastOptions={{ position: "top-right" }} />
+      <Toaster containerStyle={{ top: 30 }} toastOptions={{ position: "top-right" }} />
     </HelmetProvider>
   </StrictMode>,
 )
