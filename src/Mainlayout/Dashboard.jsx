@@ -11,12 +11,16 @@ import { Helmet } from "react-helmet-async";
 import { FiLogOut } from "react-icons/fi";
 import { useContext } from "react";
 import { authContext } from "../Provider/Authprovider";
+import UseNotification from "../Hooks/UseNotification";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Dashboard = () => {
 
     const [isAdmin] = UseAdmin()
     const { logoutUser } = useContext(authContext)
+    const [notificaion] = UseNotification()
 
     const handleLogout = () => {
         logoutUser()
@@ -27,6 +31,19 @@ const Dashboard = () => {
                 // console.log(error)
             })
     }
+
+    const axiosSecure = UseAxiosSecure()
+    const { data: users = [], refetch } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/users', {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('access-token')}`
+                }
+            })
+            return res.data;
+        }
+    })
 
     return (
         <div className="lg:flex md:flex">
@@ -43,7 +60,7 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><NavLink to="adminProfile"><MdAdminPanelSettings />Admin Profile</NavLink></li>
-                            <li><NavLink to="manageUser"><HiMiniUsers />Manage Users</NavLink></li>
+                            <li><NavLink to="manageUser"><HiMiniUsers />Manage Users<p>({users.length})</p></NavLink></li>
                             <li><NavLink to="reportedComment"><MdReport />Reported Comments</NavLink></li>
                             <li><NavLink to="makeAnnouncement"><MdAnnouncement />Make Announcement</NavLink></li>
                         </>
@@ -58,7 +75,7 @@ const Dashboard = () => {
                     <div className="divider"></div>
                     <li><NavLink to="/"> <FaHome></FaHome>Home</NavLink></li>
                     <li><NavLink to="/membership"><MdCardMembership />Membership</NavLink></li>
-                    <li><div><IoNotifications />Notification</div></li>
+                    <li><div><IoNotifications />Notification<p>({notificaion.length})</p></div></li>
                     <li><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut />Logout</button></li>
                 </ul>
             </div>
