@@ -9,8 +9,8 @@ const MyProfile = () => {
             <h3 className="text-xl font-bold">My Profile:</h3>
             <div className="">
                 <img className="w-52 rounded-md" src={user?.photoURL} alt="" />
-                <p className="text-gray-500">Name: {user?.displayName}</p>
-                <p className="text-gray-500">Email: {user?.email}</p>
+                <p className="">Name: {user?.displayName}</p>
+                <p className="">Email: {user?.email}</p>
             </div>
         </div>
     );

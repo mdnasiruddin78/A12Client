@@ -5,7 +5,7 @@ import Searchbox from "../Components/Searchbox";
 
 const Home = () => {
     return (
-        <div>
+        <div className="bg-base-300">
             <section>
                 <Searchbox></Searchbox>
             </section>
