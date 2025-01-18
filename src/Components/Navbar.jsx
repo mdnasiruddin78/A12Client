@@ -13,7 +13,7 @@ import UseNotification from "../Hooks/UseNotification";
 const Navbar = () => {
 
     const { user, logoutUser } = useContext(authContext)
-    const [notificaion] = UseNotification() 
+    const [notificaion] = UseNotification()
 
     const handleLogout = () => {
         logoutUser()
@@ -39,21 +39,25 @@ const Navbar = () => {
                 <div className="flex items-center space-x-5">
                     <NavLink to='/' className='font-bold lg:flex md:flex hidden'>Home</NavLink>
                     <NavLink to='/membership' className='font-bold lg:flex md:flex hidden'>Membership</NavLink>
-                    <div className="flex items-center text-xl"><IoNotifications/>{notificaion.length}</div>
                 </div>
             </div>
             <div>
                 {
-                    user && user?.email ? <div className="dropdown dropdown-end">
-                        <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
-                        <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
-                            <li><h3 className="font-bold">{user?.displayName}</h3></li>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
-                            <li><a><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut className="mr-2"/>Logout</button></a></li>
-                        </ul>
-                    </div>
+                    user && user?.email ? <div className="flex items-center space-x-4">
+                        <div className="flex items-center text-xl"><IoNotifications />({notificaion.length})</div>
+                        <div className="dropdown dropdown-end">
+                    <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
+                    <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
+                        <li><h3 className="font-bold">{user?.displayName}</h3></li>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li><a><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut className="mr-2" />Logout</button></a></li>
+                    </ul>
+                </div></div>
                         :
+                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center text-xl"><IoNotifications />({notificaion.length})</div>
                         <Link to="/login" className="btn bg-purple-700 rounded-md text-white">Join US</Link>
+                        </div>
                 }
             </div>
         </div>
