@@ -5,6 +5,7 @@ import ContentCard from "./ContentCard";
 const RightNavbar = () => {
 
     const [notificaion] = UseNotification()
+    
     return (
         <div className="bg-purple-300 rounded-md">
             <h3 className="text-center text-xl font-bold mb-2"><u>Announcement({notificaion.length})</u></h3>
