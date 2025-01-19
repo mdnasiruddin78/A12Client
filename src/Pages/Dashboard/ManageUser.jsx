@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { MdAdminPanelSettings } from "react-icons/md";
-import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from "sweetalert2";

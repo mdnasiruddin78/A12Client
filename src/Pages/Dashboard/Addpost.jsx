@@ -4,6 +4,7 @@ import { authContext } from "../../Provider/Authprovider";
 import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const Addpost = () => {
@@ -12,11 +13,12 @@ const Addpost = () => {
     const { user } = useContext(authContext)
     const { register, handleSubmit, reset } = useForm();
     const [tags, setTags] = useState()
+    const navigate = useNavigate()
 
     const onSubmit = data => {
         const addPost = {
             name: data.name,
-            image: data.image,
+            image: user.photoURL,
             title: data.title,
             tag: tags,
             email: user.email,
@@ -30,6 +32,7 @@ const Addpost = () => {
                 if (res.data.insertedId) {
                     reset()
                     toast.success('Post Successfully Added!')
+                    navigate('/')
                 }
             })
     }
@@ -46,12 +49,6 @@ const Addpost = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                     {/* form first row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
-                        <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">Author Image</span>
-                            </label>
-                            <input type="url" {...register("image", { required: true })} placeholder="Service Image link" className="input input-bordered" />
-                        </div>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">Post Title</span>

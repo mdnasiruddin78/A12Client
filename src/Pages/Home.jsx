@@ -1,3 +1,4 @@
+import HomeMiddle from "../Components/HomeMiddle";
 import LeftNavbar from "../Components/LeftNavbar";
 import RightNavbar from "../Components/RightNavbar";
 import Searchbox from "../Components/Searchbox";
@@ -14,7 +15,7 @@ const Home = () => {
                     <LeftNavbar></LeftNavbar>
                 </aside>
                 <section className='lg:col-span-6 md:col-span-6'>
-                    center section
+                    <HomeMiddle></HomeMiddle>
                 </section>
                 <aside className='right lg:col-span-3 md:col-span-3'>
                     <RightNavbar></RightNavbar>
