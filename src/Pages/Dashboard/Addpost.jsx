@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+// import TimePicker from 'react-time-picker';
+// import 'react-time-picker/dist/TimePicker.css';
+// import 'react-clock/dist/Clock.css';
 
 
 const Addpost = () => {
@@ -14,6 +17,7 @@ const Addpost = () => {
     const { register, handleSubmit, reset } = useForm();
     const [tags, setTags] = useState()
     const navigate = useNavigate()
+    // const [value, onChange] = useState('10:00');
 
     const onSubmit = data => {
         const addPost = {
@@ -23,6 +27,7 @@ const Addpost = () => {
             tag: tags,
             email: user.email,
             description: data.description,
+            time: Date(),
         }
         console.log(addPost)
         toast.success('Post Successfully Added!')
@@ -55,6 +60,12 @@ const Addpost = () => {
                             </label>
                             <input type="text" {...register("title", { required: true })} placeholder="Service Title" className="input input-bordered" />
                         </div>
+                        {/* <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">Post Time</span>
+                            </label>
+                            <TimePicker onChange={onChange} value={value} />
+                        </div> */}
                     </div>
                     {/* form second row */}
                     <div className='flex flex-col lg:flex-row gap-5'>

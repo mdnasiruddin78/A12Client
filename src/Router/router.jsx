@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/membership",
-        element: <Membership></Membership>,
+        element: <Privateroute><Membership></Membership></Privateroute>,
       },
       {
         path: "/login",
@@ -50,15 +50,15 @@ const router = createBrowserRouter([
       // normal user route
       {
         path: "myprofile",
-        element: <MyProfile></MyProfile>,
+        element: <Privateroute><MyProfile></MyProfile></Privateroute>,
       },
       {
         path: "addpost",
-        element: <Addpost></Addpost>,
+        element: <Privateroute><Addpost></Addpost></Privateroute>,
       },
       {
         path: "mypost",
-        element: <Mypost></Mypost>,
+        element: <Privateroute><Mypost></Mypost></Privateroute>,
       },
       // admin only routes
       {

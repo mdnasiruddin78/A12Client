@@ -8,12 +8,14 @@ import { FiLogOut } from "react-icons/fi";
 import toast from "react-hot-toast";
 import UseNotification from "../Hooks/UseNotification";
 import { Badge } from "@material-tailwind/react";
+import UseAdmin from "../Hooks/UseAdmin";
 
 
 const Navbar = () => {
 
     const { user, logoutUser } = useContext(authContext)
     const [notificaion] = UseNotification()
+    // const [isAdmin] = UseAdmin()
 
     const handleLogout = () => {
         logoutUser()
@@ -48,10 +50,15 @@ const Navbar = () => {
                             <IoNotifications className="text-2xl" />
                         </Badge>
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button"><img className="w-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
+                            <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full border-2 border-white" src={user?.photoURL} alt="not found" /></div>
                             <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
                                 <li><h3 className="font-bold">{user?.displayName}</h3></li>
-                                <li><Link to="/dashboard">Dashboard</Link></li>
+                                <li>
+                                <Link to="/dashboard">Dashboard</Link>
+                                    {/* {
+                                        isAdmin ? <Link to="/dashboard/adminProfile">Dashboard</Link> : <Link to="/dashboard/myprofile">Dashboard</Link>
+                                    } */}
+                                </li>
                                 <li><a><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut className="mr-2" />Logout</button></a></li>
                             </ul>
                         </div></div>

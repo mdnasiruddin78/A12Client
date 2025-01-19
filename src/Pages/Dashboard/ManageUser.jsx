@@ -77,7 +77,7 @@ const ManageUser = () => {
 
     return (
         <div>
-             <Helmet>
+            <Helmet>
                 <title>Dashboard | Manage-Users</title>
             </Helmet>
             <div className="flex justify-around">
