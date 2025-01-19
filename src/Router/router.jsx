@@ -1,6 +1,5 @@
 import {
   createBrowserRouter,
-  Navigate,
 } from "react-router-dom";
 import Mainlayout from "../Mainlayout/Mainlayout";
 import Error from "../Components/Error";

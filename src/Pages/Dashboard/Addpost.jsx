@@ -40,7 +40,7 @@ const Addpost = () => {
     return (
         <div>
             <Helmet>
-                <title>DASHBOARD | ADD-POST</title>
+                <title>Dashboard | Add-Post</title>
             </Helmet>
             <div className="mb-3">
                 <h1 className="text-xl font-bold">Add Service:</h1>

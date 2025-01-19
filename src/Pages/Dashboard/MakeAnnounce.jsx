@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 
 const MakeAnnounce = () => {
@@ -31,6 +32,9 @@ const MakeAnnounce = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Make-Announcement</title>
+            </Helmet>
             <h3 className="text-xl font-bold">Make Announcement:</h3>
             <div className="mt-10">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">

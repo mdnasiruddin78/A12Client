@@ -33,7 +33,7 @@ const Dashboard = () => {
     return (
         <div className="lg:flex md:flex bg-base-300">
             <Helmet>
-                <title>DASHBOARD</title>
+                <title>Dashboard</title>
             </Helmet>
             {/* dashboard side bar */}
             <div className="lg:w-64 md:w-64 min-h-screen bg-purple-200">

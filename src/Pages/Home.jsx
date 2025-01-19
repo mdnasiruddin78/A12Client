@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import HomeMiddle from "../Components/HomeMiddle";
 import LeftNavbar from "../Components/LeftNavbar";
 import RightNavbar from "../Components/RightNavbar";
@@ -7,6 +8,9 @@ import Searchbox from "../Components/Searchbox";
 const Home = () => {
     return (
         <div className="bg-base-300">
+            <Helmet>
+                <title>BlogSpace | Home</title>
+            </Helmet>
             <section>
                 <Searchbox></Searchbox>
             </section>
