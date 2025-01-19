@@ -17,6 +17,7 @@ import ManageUser from "../Pages/Dashboard/ManageUser";
 import ReportedComment from "../Pages/Dashboard/ReportedComment";
 import MakeAnnounce from "../Pages/Dashboard/MakeAnnounce";
 import AdminRoute from "./AdminRoute";
+import CardDetails from "../Components/CardDetails";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/addPost/:id",
+        element: <Privateroute><CardDetails></CardDetails></Privateroute>,
+      }
     ]
   },
   {

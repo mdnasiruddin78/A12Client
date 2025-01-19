@@ -6,7 +6,7 @@ import HomeCard from "./HomeCard";
 const HomeMiddle = () => {
 
     const axiosPublic = UseAxiosPublic()
-    const { data: recivedData = [] , refetch } = useQuery({
+    const { data: recivedData = []} = useQuery({
         queryKey: ['recivedData'],
         queryFn: async () => {
             const res = await axiosPublic.get('/addPost')

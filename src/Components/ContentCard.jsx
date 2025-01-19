@@ -9,7 +9,7 @@ const ContentCard = ({content}) => {
             </div>
             <h3>Name: {name}</h3>
             <p>Title: {title}</p>
-            <p>Description: {description.substring(1,20)}...</p>
+            <p className="break-all">Description: {description}</p>
         </div>
     );
 };

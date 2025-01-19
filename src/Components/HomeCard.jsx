@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HomeCard = ({ recived }) => {
 
-    const { description, image, name, tag, title ,time } = recived;
+    const { _id, description, image, name, tag, title ,time } = recived;
 
     function timeAgo(date) {
         const now = new Date();
@@ -34,7 +34,7 @@ const HomeCard = ({ recived }) => {
     const newDate = new Date(time);
 
     return (
-        <Link to={``} className="p-5 bg-white shadow-lg rounded-lg overflow-x-hidden">
+        <Link to={`/addPost/${_id}`} className="p-5 bg-white shadow-lg rounded-lg">
             <div className="flex items-center mb-4">
                 <img
                     src={image}
@@ -49,7 +49,7 @@ const HomeCard = ({ recived }) => {
             <h3 className="text-xl font-bold text-gray-800 mb-3">
                 {title}
             </h3>
-            <p className="text-gray-600">
+            <p className="text-gray-600 break-all">
                {description.substring(0,35)}<span className="text-blue-800">...Seemore</span>
             </p>
             <div className="flex items-center justify-between mt-4 text-gray-500">
