@@ -50,15 +50,15 @@ const router = createBrowserRouter([
       // normal user route
       {
         path: "myprofile",
-        element: <Privateroute><MyProfile></MyProfile></Privateroute>,
+        element: <MyProfile></MyProfile>,
       },
       {
         path: "addpost",
-        element: <Privateroute><Addpost></Addpost></Privateroute>,
+        element: <Addpost></Addpost>,
       },
       {
         path: "mypost",
-        element: <Privateroute><Mypost></Mypost></Privateroute>,
+        element: <Mypost></Mypost>,
       },
       // admin only routes
       {

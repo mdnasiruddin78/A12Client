@@ -34,7 +34,7 @@ const HomeCard = ({ recived }) => {
     const newDate = new Date(time);
 
     return (
-        <Link to={``} className="p-5 bg-white shadow-lg rounded-lg">
+        <Link to={``} className="p-5 bg-white shadow-lg rounded-lg overflow-x-hidden">
             <div className="flex items-center mb-4">
                 <img
                     src={image}
@@ -50,7 +50,7 @@ const HomeCard = ({ recived }) => {
                 {title}
             </h3>
             <p className="text-gray-600">
-               {description.substring(0,35)}<span className="text-blue-800">(Seemore...)</span>
+               {description.substring(0,35)}<span className="text-blue-800">...Seemore</span>
             </p>
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">

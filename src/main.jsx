@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')).render(
           </Authprovider>
         </ThemeProvider>
       </QueryClientProvider>
-      <Toaster containerStyle={{ top: 30 }} toastOptions={{ position: "top-right" }} />
+      <Toaster containerStyle={{ top: 60 }} toastOptions={{ position: "top-right" }} />
     </HelmetProvider>
   </StrictMode>,
 )
