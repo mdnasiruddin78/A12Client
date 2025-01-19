@@ -7,7 +7,7 @@ const RightNavbar = () => {
     const [notificaion] = UseNotification()
     
     return (
-        <div className="bg-purple-300 rounded-md">
+        <div className="bg-purple-200 rounded-md">
             <h3 className="text-center text-xl font-bold mb-2"><u>Announcement({notificaion.length})</u></h3>
             <div className="grid grid-cols-1">
                 {

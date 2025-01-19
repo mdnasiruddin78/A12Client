@@ -36,7 +36,7 @@ const Dashboard = () => {
                 <title>DASHBOARD</title>
             </Helmet>
             {/* dashboard side bar */}
-            <div className="lg:w-64 md:w-64 min-h-screen bg-purple-300">
+            <div className="lg:w-64 md:w-64 min-h-screen bg-purple-200">
                 <div className="flex justify-center lg:mt-3">
                     <img className="h-10 rounded-md" src={logo} alt="" />
                 </div>

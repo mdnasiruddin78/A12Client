@@ -2,7 +2,7 @@
 
 const LeftNavbar = () => {
     return (
-        <div className="bg-purple-300 rounded-md text-center space-y-5 py-3">
+        <div className="bg-purple-200 rounded-md text-center space-y-5 py-3">
            <h3 className="font-semibold">Use These Tags To Search</h3>
            <p>1.Mobile</p> 
            <p>2.Laptop</p> 

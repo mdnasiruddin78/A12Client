@@ -110,14 +110,14 @@ const ManageUser = () => {
                                         <div className="font-semibold">{user?.name}</div>
                                     </div>
                                 </td>
-                                <td className="text-gray-500 font-semibold">
+                                <td className="font-semibold">
                                     {user?.email}
                                 </td>
                                 <td>
                                     {
                                         user.role === 'admin' ? <button className="btn btn-ghost btn-xs bg-green-500">Admin</button>
                                             :
-                                            <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-sky-500"><MdAdminPanelSettings className="text-2xl" /></button>
+                                            <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost btn-xs bg-blue-600"><MdAdminPanelSettings className="text-2xl" /></button>
                                     }
                                 </td>
                                 <th>
