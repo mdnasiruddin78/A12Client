@@ -3,6 +3,9 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 
 const MakeAnnounce = () => {
@@ -10,12 +13,14 @@ const MakeAnnounce = () => {
     const axiosSecure = UseAxiosSecure()
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate()
+    const [startDate, setStartDate] = useState(new Date());
 
     const onSubmit = data => {
         console.log(data)
         const announcement = {
             name: data.name,
             image: data.image,
+            date: startDate,
             title: data.title,
             description: data.description,
         }
@@ -53,6 +58,13 @@ const MakeAnnounce = () => {
                             placeholder="image link"
                             className='block lg:w-1/2 w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                         />
+                    </div>
+                    <div>
+                        <p>Date:</p>
+                        <DatePicker
+                            className='border p-2 rounded-md'
+                            selected={startDate}
+                            onChange={(date) => setStartDate(date)} />
                     </div>
                     <div>
                         <p>Title:</p>

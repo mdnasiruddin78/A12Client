@@ -12,7 +12,7 @@ const Mypost = () => {
 
     const { user } = useContext(authContext)
     const axiosPublic = UseAxiosSecure()
-    const { data: myPosts = [],refetch} = useQuery({
+    const { data: myPosts = [], refetch } = useQuery({
         queryKey: ['myPosts'],
         queryFn: async () => {
             const res = await axiosPublic.get(`/addEmail/${user?.email}`)
@@ -62,8 +62,8 @@ const Mypost = () => {
                             <th>Serial</th>
                             <th>Post Title</th>
                             <th>Number of votes</th>
-                            <th>Comment Button</th>
-                            <th>Delete Button</th>
+                            <th>Comment</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>

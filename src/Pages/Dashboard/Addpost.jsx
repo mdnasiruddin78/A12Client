@@ -5,9 +5,6 @@ import { useForm } from "react-hook-form";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-// import TimePicker from 'react-time-picker';
-// import 'react-time-picker/dist/TimePicker.css';
-// import 'react-clock/dist/Clock.css';
 
 
 const Addpost = () => {
@@ -17,7 +14,6 @@ const Addpost = () => {
     const { register, handleSubmit, reset } = useForm();
     const [tags, setTags] = useState()
     const navigate = useNavigate()
-    // const [value, onChange] = useState('10:00');
 
     const onSubmit = data => {
         const addPost = {
