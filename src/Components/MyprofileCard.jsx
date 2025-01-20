@@ -41,8 +41,8 @@ const MyprofileCard = ({ myPost }) => {
 
 
     return (
-        <div className="bg-base-300 flex justify-center p-4">
-            <div className="w-[550px] p-5 bg-white shadow-lg rounded-lg">
+        <div className="">
+            <div className="lg:w-[550px] p-5 bg-white shadow-lg rounded-lg">
                 <div className="flex items-center mb-4">
                     <img
                         src={image}
@@ -98,7 +98,7 @@ const MyprofileCard = ({ myPost }) => {
                         </span>
                     </div>
                     <FacebookShareButton url={shareUrl}>
-                        <FacebookIcon size={32} round />
+                    <FacebookIcon size={32} round />
                     </FacebookShareButton>
                 </div>
             </div>

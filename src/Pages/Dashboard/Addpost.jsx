@@ -37,7 +37,7 @@ const Addpost = () => {
                 if (res.data.insertedId) {
                     reset()
                     toast.success('Post Successfully Added!')
-                    navigate('/')
+                    navigate('/dashboard/mypost')
                 }
             })
     }
@@ -60,12 +60,6 @@ const Addpost = () => {
                             </label>
                             <input type="text" {...register("title", { required: true })} placeholder="Service Title" className="input input-bordered" />
                         </div>
-                        {/* <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">Post Time</span>
-                            </label>
-                            <TimePicker onChange={onChange} value={value} />
-                        </div> */}
                     </div>
                     {/* form second row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
