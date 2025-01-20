@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const HomeCard = ({ recived }) => {
 
-    const { _id, description, image, name, tag, title ,time } = recived;
+    const { _id, description, image, name, tag, title, time } = recived;
 
     function timeAgo(date) {
         const now = new Date();
@@ -13,8 +12,8 @@ const HomeCard = ({ recived }) => {
         const diffInHours = Math.floor(diffInMinutes / 60);
         const diffInDays = Math.floor(diffInHours / 24);
         const diffInMonths = Math.floor(diffInDays / 30);
-        const diffInYears = Math.floor(diffInDays / 365); 
-    
+        const diffInYears = Math.floor(diffInDays / 365);
+
         if (diffInSeconds < 60) {
             return `${diffInSeconds} seconds ago`;
         } else if (diffInMinutes < 60) {
@@ -29,12 +28,12 @@ const HomeCard = ({ recived }) => {
             return `${diffInYears} year${diffInYears !== 1 ? 's' : ''} ago`;
         }
     }
-    
+
     // const oldDate = new Date("Mon Jan 01 1990 00:00:00 GMT+0600 (Bangladesh Standard Time)");
     const newDate = new Date(time);
 
     return (
-        <Link to={`/addPost/${_id}`} className="p-5 bg-white shadow-lg rounded-lg">
+        <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-white rounded-lg hover:scale-105">
             <div className="flex items-center mb-4">
                 <img
                     src={image}
@@ -50,7 +49,7 @@ const HomeCard = ({ recived }) => {
                 {title}
             </h3>
             <p className="text-gray-600 break-all">
-               {description.substring(0,35)}<span className="text-blue-800">...Seemore</span>
+                {description.substring(0, 35)}<span className="text-blue-800">...Seemore</span>
             </p>
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">

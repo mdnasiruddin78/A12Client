@@ -11,11 +11,11 @@ import Swal from "sweetalert2";
 const Mypost = () => {
 
     const { user } = useContext(authContext)
-    const axiosPublic = UseAxiosSecure()
+    const axiosSecure = UseAxiosSecure()
     const { data: myPosts = [], refetch } = useQuery({
         queryKey: ['myPosts'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/addEmail/${user?.email}`)
+            const res = await axiosSecure.get(`/addEmail/${user?.email}`)
             // console.log(res.data)
             return res.data
         }
@@ -32,7 +32,7 @@ const Mypost = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/addEmail/${myPost?._id}`)
+                axiosSecure.delete(`/addEmail/${myPost?._id}`)
                     .then(res => {
                         console.log(res.data)
                         if (res.data.deletedCount > 0) {

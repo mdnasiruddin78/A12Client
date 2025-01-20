@@ -2,18 +2,18 @@ import { useContext } from "react";
 import { authContext } from "../../Provider/Authprovider";
 import { Helmet } from "react-helmet-async";
 import { useQuery } from "@tanstack/react-query";
-import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import MyprofileCard from "../../Components/MyprofileCard";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 
 const MyProfile = () => {
 
     const { user } = useContext(authContext)
-    const axiosPublic = UseAxiosPublic()
+    const axiosSecure = UseAxiosSecure()
     const { data: myPosts = []} = useQuery({
         queryKey: ['myPosts'],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/emailLimit/${user?.email}`)
+            const res = await axiosSecure.get(`/emailLimit/${user?.email}`)
             console.log(res.data)
             return res.data
         }

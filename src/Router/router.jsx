@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/addPost/:id",
-        element: <Privateroute><CardDetails></CardDetails></Privateroute>,
+        element: <CardDetails></CardDetails>,
       }
     ]
   },

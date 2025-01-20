@@ -2,14 +2,14 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { authContext } from "../../Provider/Authprovider";
 import { useForm } from "react-hook-form";
-import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 
 const Addpost = () => {
 
-    const axiosPublic = UseAxiosPublic()
+    const axiosSecure = UseAxiosSecure()
     const { user } = useContext(authContext)
     const { register, handleSubmit, reset } = useForm();
     const [tags, setTags] = useState()
@@ -27,7 +27,7 @@ const Addpost = () => {
         }
         console.log(addPost)
         toast.success('Post Successfully Added!')
-        axiosPublic.post('/addPost', addPost)
+        axiosSecure.post('/addPost', addPost)
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {
@@ -63,7 +63,7 @@ const Addpost = () => {
                             <label className="label">
                                 <span className="label-text">Author Name</span>
                             </label>
-                            <input type="text" {...register("name", { required: true })} placeholder="Company Name" className="input input-bordered" />
+                            <input type="text" {...register("name", { required: true })} placeholder="Author Name" className="input input-bordered" />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
