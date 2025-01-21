@@ -4,7 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { HiMiniUsers } from "react-icons/hi2";
 import { IoNotifications } from "react-icons/io5";
 import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 import UseAdmin from "../Hooks/UseAdmin";
 import { Helmet } from "react-helmet-async";
@@ -12,6 +12,7 @@ import { FiLogOut } from "react-icons/fi";
 import { useContext } from "react";
 import { authContext } from "../Provider/Authprovider";
 import UseNotification from "../Hooks/UseNotification";
+import '../Components/index/index.css';
 
 
 const Dashboard = () => {
@@ -31,14 +32,14 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="lg:flex md:flex bg-base-300">
+        <div className="lg:flex md:flex bg-base-200">
             <Helmet>
                 <title>Dashboard</title>
             </Helmet>
             {/* dashboard side bar */}
-            <div className="lg:w-64 md:w-64 min-h-screen bg-purple-200">
-                <div className="flex justify-center lg:mt-3">
-                    <img className="h-10 rounded-md" src={logo} alt="" />
+            <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen adminColor"> 
+                <div className="flex justify-center">
+                    <img className="h-10 rounded-md mt-3" src={logo} alt="" />
                 </div>
                 <p className="font-bold text-center">Dashboard</p>
                 <ul className="menu">
@@ -58,8 +59,8 @@ const Dashboard = () => {
                     }
                     {/* shared nav links */}
                     <div className="divider"></div>
-                    <li><NavLink to="/"> <FaHome></FaHome>Home</NavLink></li>
-                    <li><NavLink to="/membership"><MdCardMembership />Membership</NavLink></li>
+                    <li><Link to="/"> <FaHome></FaHome>Home</Link></li>
+                    <li><Link to="/membership"><MdCardMembership />Membership</Link></li>
                     <li><div><IoNotifications />Notification<p>({notificaion.length})</p></div></li>
                     <li><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut />Logout</button></li>
                 </ul>

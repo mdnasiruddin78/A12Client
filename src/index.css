@@ -8,6 +8,15 @@
 @tailwind utilities;
 
 
+.active {
+    background-color: #666;
+    color: white;
+    border-radius: 5px;
+    /* padding-left: 6px;
+    padding-right: 6px; */
+  }
+
+
 body{
     overflow-y: scroll;
 }

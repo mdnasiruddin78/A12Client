@@ -57,7 +57,7 @@ const Mypost = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead >
                         <tr>
                             <th>Serial</th>
                             <th>Post Title</th>

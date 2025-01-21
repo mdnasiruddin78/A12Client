@@ -26,7 +26,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex justify-between items-center backdrop-blur bg-purple-200 lg:px-7 px-4 py-2">
+        <div className="flex justify-between items-center backdrop-blur lg:px-7 px-4 py-2">
             <div className="dropdown lg:hidden md:hidden flex">
                 <div tabIndex={0} role="button"><HiMenuAlt1 className='text-3xl text-black' /></div>
                 <ul tabIndex={0} className="dropdown-content menu text-black bg-base-200 font-bold rounded-box z-[1] w-44 p-2">
@@ -48,7 +48,7 @@ const Navbar = () => {
                             <IoNotifications className="text-2xl" />
                         </Badge>
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full border-2 border-white" src={user?.photoURL} alt="not found" /></div>
+                            <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="not found" /></div>
                             <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
                                 <li><h3 className="font-bold">{user?.displayName}</h3></li>
                                 <li>
@@ -62,7 +62,7 @@ const Navbar = () => {
                             <Badge content={`${notificaion.length}`} withBorder>
                                 <IoNotifications className="text-2xl" />
                             </Badge>
-                            <Link to="/login" className="btn bg-purple-700 rounded-md text-white">Join US</Link>
+                            <Link to="/login" className="btn bg-[#a6acaf] rounded-md">Join US</Link>
                         </div>
                 }
             </div>

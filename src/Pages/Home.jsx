@@ -7,7 +7,7 @@ import Searchbox from "../Components/Searchbox";
 
 const Home = () => {
     return (
-        <div className="bg-base-300">
+        <div className="bg-[#a6acaf]">
             <Helmet>
                 <title>BlogSpace | Home</title>
             </Helmet>
