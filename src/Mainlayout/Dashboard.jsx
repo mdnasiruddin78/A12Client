@@ -32,7 +32,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="lg:flex md:flex bg-base-200">
+        <div className="lg:flex md:flex bg-base-300">
             <Helmet>
                 <title>Dashboard</title>
             </Helmet>
