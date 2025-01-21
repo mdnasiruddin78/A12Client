@@ -1,8 +1,9 @@
-# React + Vite
+1. project name: BlogSpace.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. purpose: A Online Social Media Platform.
 
-Currently, two official plugins are available:
+3. live URL: https://zingy-sunshine-2e5cd3.netlify.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. key features: a.user to make admin, b.search functionality, c.admin create a tag to derect user post tag dropdown
+
+5. npm packages: a.react-share npm, b.Meterial-tailwind notification icon npm, c.sweetAlert

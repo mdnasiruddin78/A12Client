@@ -37,7 +37,7 @@ const MyProfile = () => {
             <h3 className="text-xl font-bold py-4">My 3 Recent Posts:</h3>
             <div className="grid grid-cols-1 gap-4">
                 {
-                    myPosts.map(myPost => <MyprofileCard key={myPost._id} myPost={myPost}></MyprofileCard>)
+                    myPosts && myPosts.length > 0 ? myPosts.map(myPost => <MyprofileCard key={myPost._id} myPost={myPost}></MyprofileCard>) : <p className="text-red-500">You Have No Posts</p>
                 }
             </div>
         </div>
