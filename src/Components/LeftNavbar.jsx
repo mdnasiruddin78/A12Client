@@ -1,20 +1,26 @@
+import { useQuery } from '@tanstack/react-query';
+import UseAxiosPublic from '../Hooks/UseAxiosPublic';
 import './index/index.css';
 
 
 const LeftNavbar = () => {
+
+    const axiosPublic = UseAxiosPublic()
+
+    const { data: allTag = [] } = useQuery({
+        queryKey: ['tags'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/addTags')
+            return res.data
+        }
+    })
+    
     return (
         <div className="adminColor rounded-md text-center space-y-5 py-3">
            <h3 className="font-semibold">Use These Tags To Search</h3>
-           <p>1.Mobile</p> 
-           <p>2.Laptop</p> 
-           <p>3.Descktop</p> 
-           <p>4.Headphone</p> 
-           <p>5.Soundbox</p> 
-           <p>6.Keyboard</p> 
-           <p>7.Microport</p> 
-           <p>8.Mouse</p> 
-           <p>9.Microport</p> 
-           <p>10.Mouse</p> 
+          {
+            allTag.map(tag => <ul key={tag._id}><li>{tag.tag}</li></ul>)
+          }
         </div>
     );
 };

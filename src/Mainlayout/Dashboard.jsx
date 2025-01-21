@@ -4,7 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { HiMiniUsers } from "react-icons/hi2";
 import { IoNotifications } from "react-icons/io5";
 import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 import UseAdmin from "../Hooks/UseAdmin";
 import { Helmet } from "react-helmet-async";
@@ -13,6 +13,8 @@ import { useContext } from "react";
 import { authContext } from "../Provider/Authprovider";
 import UseNotification from "../Hooks/UseNotification";
 import '../Components/index/index.css';
+import AdminProfile from "../Pages/Dashboard/AdminProfile";
+import MyProfile from "../Pages/Dashboard/MyProfile";
 
 
 const Dashboard = () => {
@@ -20,6 +22,7 @@ const Dashboard = () => {
     const [isAdmin] = UseAdmin()
     const { logoutUser } = useContext(authContext)
     const [notificaion] = UseNotification()
+    const location = useLocation()
 
     const handleLogout = () => {
         logoutUser()
@@ -37,7 +40,7 @@ const Dashboard = () => {
                 <title>Dashboard</title>
             </Helmet>
             {/* dashboard side bar */}
-            <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen adminColor"> 
+            <div className="lg:w-64 md:w-64 lg:min-h-screen md:min-h-screen adminColor">
                 <div className="flex justify-center">
                     <img className="h-10 rounded-md mt-3" src={logo} alt="" />
                 </div>
@@ -67,7 +70,7 @@ const Dashboard = () => {
             </div>
             {/* dashboard content */}
             <div className="flex-1 lg:p-8 p-5">
-                <Outlet></Outlet>
+                {(location.pathname === "/dashboard" && isAdmin && <AdminProfile />) || (location.pathname === "/dashboard" && !isAdmin && <MyProfile/>) || <Outlet></Outlet>}
             </div>
         </div>
     );
