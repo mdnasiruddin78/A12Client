@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 
 const Addpost = () => {
@@ -26,7 +27,6 @@ const Addpost = () => {
             time: Date(),
         }
         console.log(addPost)
-        toast.success('Post Successfully Added!')
         axiosSecure.post('/addPost', addPost)
             .then(res => {
                 console.log(res.data)
@@ -37,6 +37,14 @@ const Addpost = () => {
                 }
             })
     }
+
+    const { data: allTag = [] } = useQuery({
+        queryKey: ['tags'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/addTags')
+            return res.data
+        }
+    })
 
     return (
         <div>
@@ -76,8 +84,9 @@ const Addpost = () => {
                                 required
                             >
                                 <option defaultValue>Select A Tag!</option>
-                                <option value='Computer'>Computer</option>
-                                <option value='Mobile'>Mobile</option>
+                                {
+                                    allTag.map(tag => <option key={tag._id} value={tag.tag}>{tag?.tag}</option>)
+                                }
                             </select>
                         </div>
                     </div>

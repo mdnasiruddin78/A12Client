@@ -9,14 +9,12 @@ import toast from "react-hot-toast";
 import UseNotification from "../Hooks/UseNotification";
 import { Badge } from "@material-tailwind/react";
 import './index/index.css';
-import UseAdmin from "../Hooks/UseAdmin";
 
 
 const Navbar = () => {
 
     const { user, logoutUser } = useContext(authContext)
     const [notificaion] = UseNotification()
-    // const [isAdmin] = UseAdmin()
 
     const handleLogout = () => {
         logoutUser()
@@ -56,9 +54,6 @@ const Navbar = () => {
                                 <li><h3 className="font-bold">{user?.displayName}</h3></li>
                                 <li>
                                     <Link to="/dashboard">Dashboard</Link>
-                                    {/* {
-                                        isAdmin ? <Link to="/dashboard/adminProfile">Dashboard</Link> :  <Link to="/dashboard/myprofile">Dashboard</Link>
-                                    } */}
                                 </li>
                                 <li><a><button className="font-bold flex items-center" onClick={handleLogout}><FiLogOut className="mr-2" />Logout</button></a></li>
                             </ul>
