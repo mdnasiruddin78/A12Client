@@ -55,10 +55,10 @@ const Comment = () => {
                                     {comment.description.substring(0,20)}<span onClick={()=>handleReadMore(comment.description)} className="btn btn-ghost btn-xs text-blue-800">...Read More</span>
                                 </td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <button className="btn btn-ghost btn-xs bg-orange-500 text-white">feedback</button>
                                 </th>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <button className="btn btn-ghost btn-xs bg-red-500 text-white">Report</button>
                                 </th>
                             </tr>)
                         }
