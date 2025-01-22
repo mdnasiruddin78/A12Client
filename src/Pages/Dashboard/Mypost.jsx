@@ -6,6 +6,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaCommentDots } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const Mypost = () => {
@@ -79,7 +80,7 @@ const Mypost = () => {
                                     100
                                 </td>
                                 <td>
-                                    <button className="btn btn-ghost btn-xs"><FaCommentDots className="text-2xl text-blue-600" /></button>
+                                    <Link to={`/dashboard/comment/${myPost._id}`} className="btn btn-ghost btn-xs"><FaCommentDots className="text-2xl text-blue-600" /></Link>
                                 </td>
                                 <th>
                                     <button onClick={() => handleDeleteUser(myPost)} className="btn btn-ghost btn-xs"><RiDeleteBin5Line className="text-2xl text-red-600" /></button>

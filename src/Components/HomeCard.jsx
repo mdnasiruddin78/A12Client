@@ -49,7 +49,7 @@ const HomeCard = ({ recived }) => {
                 {title}
             </h3>
             <p className="text-gray-600 break-all">
-                {description.substring(0, 35)}<span className="text-blue-800">...Seemore</span>
+                {description.substring(0, 35)}<span className="text-blue-800">...ReadMore</span>
             </p>
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">

@@ -18,6 +18,7 @@ import ReportedComment from "../Pages/Dashboard/ReportedComment";
 import MakeAnnounce from "../Pages/Dashboard/MakeAnnounce";
 import AdminRoute from "./AdminRoute";
 import CardDetails from "../Components/CardDetails";
+import Comment from "../Pages/Dashboard/Comment";
 
 
 const router = createBrowserRouter([
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "mypost",
         element: <Mypost></Mypost>,
+      },
+      {
+        path: "comment/:id",
+        element: <Comment></Comment>,
       },
       // admin only routes
       {

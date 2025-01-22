@@ -83,6 +83,7 @@ const CardDetails = () => {
             <Helmet>
                 <title>BlogSpace | Post-Details</title>
             </Helmet>
+            <h3 className="text-xl text-center">Post Deatals</h3>
             <div className="flex justify-center">
                 <div className="w-[550px] p-5 bg-white shadow-lg rounded-lg">
                     <div className="flex items-center mb-4">
@@ -146,6 +147,7 @@ const CardDetails = () => {
                 </div>
             </div>
             <div>
+            <h3 className="text-xl text-center mt-5">Comment Section</h3>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     <div>
                         <p>Description:</p>
