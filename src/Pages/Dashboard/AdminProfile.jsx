@@ -9,6 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import { FaUsers } from "react-icons/fa";
 import { BsFillPostcardFill } from "react-icons/bs";
+import { PieChart } from 'react-minimal-pie-chart';
 
 
 const AdminProfile = () => {
@@ -55,7 +56,7 @@ const AdminProfile = () => {
             <Helmet>
                 <title>Dashboard | Admin-Profile</title>
             </Helmet>
-            <h3 className="text-xl font-bold mb-3">Admin Profile:</h3>
+            <h3 className="text-xl font-bold">Admin Profile:</h3>
             <div className="flex items-center space-x-4">
                 <div>
                     <img className="w-32 h-32 rounded-full" src={user?.photoURL} alt="" />
@@ -65,32 +66,36 @@ const AdminProfile = () => {
                     <p className="">Email: {user?.email}</p>
                 </div>
             </div>
-            <div className="flex space-x-4">
-                <div className="flex items-center space-x-3 text-2xl">
-                    <FaUsers />
-                    <p>{users.length}</p>
-                </div>
-                <div className="flex items-center space-x-3 text-2xl">
-                    <BsFillPostcardFill className="text-xl" />
-                    <p>{recivedData.length}</p>
-                </div>
-                {/* <div className='relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md'>
-                    <div
-                        className={`bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center from-blue-600 to-blue-400 text-white shadow-blue-500/40`}
-                    >
-                        <BsFillCartPlusFill className='w-6 h-6 text-white' />
+            <div className="flex space-x-4 py-4">
+                <div className="flex items-center space-x-3 text-3xl">
+                    <div>
+                        <h3>Total-Users</h3>
                     </div>
-                    <div className='p-4 text-right'>
-                        <p className='block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600'>
-                            Total Orders
-                        </p>
-                        <h4 className='block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900'>
-                            120
-                        </h4>
+                    <div className="flex items-center space-x-3">
+                        <FaUsers />
+                        <p>{users.length}</p>
                     </div>
-                </div> */}
+                </div>
+                <div className="flex items-center space-x-3 text-3xl">
+                    <div>
+                        <h3>Total-Posts</h3>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <BsFillPostcardFill className="text-xl" />
+                        <p>{recivedData.length}</p>
+                    </div>
+                </div>
             </div>
-            <h3 className="text-xl font-bold py-3">Add Tags:</h3>
+            <h3 className="text-xl font-bold">pie chart:</h3>
+            <PieChart
+                className="w-72"
+                data={[
+                    { title: 'number or post', value: `${recivedData.length}`, color: '#E38627' },
+                    { title: 'Two', value: `${users.length}`, color: '#C13C37' },
+                    { title: 'Three', value: 50, color: '#6A2135' },
+                ]}
+            />
+            <h3 className="text-xl font-bold">Add Tags:</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
                 <div>
                     <p>Tag Name:</p>

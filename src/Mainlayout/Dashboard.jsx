@@ -15,6 +15,7 @@ import UseNotification from "../Hooks/UseNotification";
 import '../Components/index/index.css';
 import AdminProfile from "../Pages/Dashboard/AdminProfile";
 import MyProfile from "../Pages/Dashboard/MyProfile";
+import toast from "react-hot-toast";
 
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
     const handleLogout = () => {
         logoutUser()
             .then(result => {
-                toast.success('Logout Successfull')
+                console.log(result)
             })
             .catch(error => {
                 // console.log(error)
@@ -35,7 +36,7 @@ const Dashboard = () => {
     }
 
     return (
-        <div className="lg:flex md:flex bg-base-300">
+        <div className="lg:flex md:flex">
             <Helmet>
                 <title>Dashboard</title>
             </Helmet>
@@ -69,7 +70,7 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 lg:p-8 p-5">
+            <div className="flex-1 lg:p-8 p-5 bg-base-300">
                 {(location.pathname === "/dashboard" && isAdmin && <AdminProfile />) || (location.pathname === "/dashboard" && !isAdmin && <MyProfile/>) || <Outlet></Outlet>}
             </div>
         </div>
