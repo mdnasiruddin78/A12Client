@@ -8,37 +8,37 @@ import axios from "axios";
 const HomeMiddle = () => {
 
     const axiosPublic = UseAxiosPublic()
-    const [search, setSearch] = useState('')
-    const [filter, setFilter] = useState('')
-    const [services, setServices] = useState([])
+    // const [search, setSearch] = useState('')
+    // const [filter, setFilter] = useState('')
+    // const [services, setServices] = useState([])
 
-    // const { data: recivedData = [] } = useQuery({
-    //     queryKey: ['recivedData'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get(`/addPost?filter=${filter}&search=${search}`)
-    //         return res.data
-    //     }
-    // })
-
-    useEffect(() => {
-        const fetchAllService = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_KEY}/addPost?filter=${filter}&search=${search}`)
-            setServices(data)
-        }
-        fetchAllService()
-    }, [filter, search])
-
-    const { data: allTag = [] } = useQuery({
-        queryKey: ['allTag'],
+    const { data: recivedData = [],refetch } = useQuery({
+        queryKey: ['recivedData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/addTags')
+            const res = await axiosPublic.get('/addPost')
             return res.data
         }
     })
 
+    // useEffect(() => {
+    //     const fetchAllService = async () => {
+    //         const { data } = await axios.get(`${import.meta.env.VITE_API_KEY}/addPost?filter=${filter}&search=${search}`)
+    //         setServices(data)
+    //     }
+    //     fetchAllService()
+    // }, [filter, search])
+
+    // const { data: allTag = [] } = useQuery({
+    //     queryKey: ['allTag'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get('/addTags')
+    //         return res.data
+    //     }
+    // })
+
     return (
         <div>
-            <div className='flex justify-between gap-3 py-5'>
+            {/* <div className='flex justify-between gap-3 py-5'>
                 <input
                     className='input input-bordered w-full max-w-xs'
                     type='text'
@@ -59,10 +59,10 @@ const HomeMiddle = () => {
                         allTag.map(tag => <option key={tag._id} value={tag.tag}>{tag?.tag}</option>)
                     }
                 </select>
-            </div>
+            </div> */}
             <div className="grid grid-cols-1 gap-4">
                 {
-                    services.map(recived => <HomeCard key={recived._id} recived={recived}></HomeCard>)
+                    recivedData.map(recived => <HomeCard key={recived._id} recived={recived} refetch={refetch}></HomeCard>)
                 }
             </div>
         </div>

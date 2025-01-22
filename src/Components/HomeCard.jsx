@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { axiosSecure } from "../Hooks/UseAxiosSecure";
+import UseAxiosPublic from "../Hooks/UseAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 
 const HomeCard = ({ recived }) => {
 
-    const { _id, description, image, name, tag, title, time } = recived;
+    const axiosPublic = UseAxiosPublic()
+
+    const { _id, description, image, name, tag, title, time ,vote } = recived;
 
     function timeAgo(date) {
         const now = new Date();
@@ -32,6 +37,14 @@ const HomeCard = ({ recived }) => {
     // const oldDate = new Date("Mon Jan 01 1990 00:00:00 GMT+0600 (Bangladesh Standard Time)");
     const newDate = new Date(time);
 
+    // const { data: comments = [] } = useQuery({
+    //     queryKey: ['comments'],
+    //     queryFn: async () => {
+    //         const res = await axiosPublic.get(`/allComment/${recived?._id}`)
+    //         return res.data;
+    //     }
+    // })
+
     return (
         <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-white rounded-lg hover:scale-105">
             <div className="flex items-center mb-4">
@@ -54,41 +67,10 @@ const HomeCard = ({ recived }) => {
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">
                     <span className="flex items-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5 text-gray-400"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M14.5 10.5h-.75m-3.5 0h-.75m5.25 0a2.25 2.25 0 01-2.25 2.25m-3.5 0a2.25 2.25 0 01-2.25-2.25m5.25 0a2.25 2.25 0 01-2.25 2.25m5.25 0a2.25 2.25 0 01-2.25-2.25m0 0V9.75a2.25 2.25 0 112.25 2.25M2.25 15.75a4.5 4.5 0 114.5 4.5m-4.5 0a4.5 4.5 0 114.5 4.5"
-                            />
-                        </svg>
-                        <span className="ml-1">6.3k</span>
-                    </span>
-                    <span className="flex items-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={1.5}
-                            stroke="currentColor"
-                            className="w-5 h-5 text-gray-400"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 6.75V18m0 0h3.75m-3.75 0H8.25"
-                            />
-                        </svg>
-                        <span className="ml-1">116</span>
+                        <span className="ml-1 text-green-500">voteCount • {vote}</span>
                     </span>
                 </div>
-                <span className="text-sm">View 124 answers</span>
+                <span className="text-sm">View 100 answers</span>
             </div>
         </Link>
     );

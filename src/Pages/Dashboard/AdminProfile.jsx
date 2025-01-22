@@ -67,7 +67,7 @@ const AdminProfile = () => {
                 </div>
             </div>
             <div className="flex space-x-4 py-4">
-                <div className="flex items-center space-x-3 text-3xl">
+                <div className="flex items-center space-x-3">
                     <div>
                         <h3>Total-Users</h3>
                     </div>
@@ -76,7 +76,7 @@ const AdminProfile = () => {
                         <p>{users.length}</p>
                     </div>
                 </div>
-                <div className="flex items-center space-x-3 text-3xl">
+                <div className="flex items-center space-x-3">
                     <div>
                         <h3>Total-Posts</h3>
                     </div>
