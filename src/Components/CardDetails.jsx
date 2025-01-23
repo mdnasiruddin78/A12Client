@@ -144,18 +144,20 @@ const CardDetails = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <h3 className="text-xl text-center mt-5">Comment Section</h3>
+            <h3 className="text-xl text-center mt-5">Comment Section</h3>
+            <div className="flex justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     <div>
                         <p>Description:</p>
                         <textarea {...register("description", { required: true })}
                             type="text"
                             placeholder="Description"
-                            className='block lg:w-1/2 w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  border-black  focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                            className='px-4 py-2 w-80 border-2 border-black rounded-md text-gray-700'
                         />
                     </div>
+                    <div className="flex justify-center">
                     <button className="btn adminColor">Comment</button>
+                    </div>
                 </form>
             </div>
         </div>
