@@ -11,8 +11,6 @@ const HomeMiddle = () => {
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState([])
 
-    console.log(search)
-
     const { data: recivedData = [] } = useQuery({
         queryKey: ['recivedData',search],
         queryFn: async () => {

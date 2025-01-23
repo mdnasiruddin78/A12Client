@@ -14,6 +14,7 @@ import { useContext, useState } from "react";
 import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { button } from "@material-tailwind/react";
 
 
 const CardDetails = () => {
@@ -131,7 +132,7 @@ const CardDetails = () => {
                     <div className="flex items-center justify-between mt-4 text-gray-500">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
-                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> • 
+                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
                                 <p className="text-xl font-bold text-green-500">{details?.vote}</p>
                             </span>
                             <span className="flex items-center">
@@ -156,7 +157,7 @@ const CardDetails = () => {
                         />
                     </div>
                     <div className="flex justify-center">
-                    <button className="btn adminColor">Comment</button>
+                        <button className="btn adminColor">Comment</button>
                     </div>
                 </form>
             </div>
