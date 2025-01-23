@@ -7,7 +7,7 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
-import { FaUsers } from "react-icons/fa";
+import { FaCommentDots, FaUsers } from "react-icons/fa";
 import { BsFillPostcardFill } from "react-icons/bs";
 import { PieChart } from 'react-minimal-pie-chart';
 
@@ -42,15 +42,25 @@ const AdminProfile = () => {
         }
     })
 
-    const { data: users = []} = useQuery({
+    const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
             return res.data;
         }
     })
+
+    const { data: comment = [] } = useQuery({
+        queryKey: ['comment'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/allComent')
+            return res.data;
+        }
+    })
+
     console.log(users)
     console.log(recivedData)
+
     return (
         <div>
             <Helmet>
@@ -85,14 +95,23 @@ const AdminProfile = () => {
                         <p>{recivedData.length}</p>
                     </div>
                 </div>
+                <div className="flex items-center space-x-3">
+                    <div>
+                        <h3>Total-Comments</h3>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                        <FaCommentDots className="text-xl" />
+                        <p>{comment.length}</p>
+                    </div>
+                </div>
             </div>
             <h3 className="text-xl font-bold">pie chart:</h3>
             <PieChart
                 className="w-72"
                 data={[
-                    { title: 'number or post', value: `${recivedData.length}`, color: '#E38627' },
-                    { title: 'Two', value: `${users.length}`, color: '#C13C37' },
-                    { title: 'Three', value: 50, color: '#6A2135' },
+                    { title: 'number of post', value: `${recivedData.length}`, color: '#E38627' },
+                    { title: 'number of user', value: `${users.length}`, color: '#C13C37' },
+                    { title: 'number of comment', value: `${comment.length}`, color: '#6A2135' },
                 ]}
             />
             <h3 className="text-xl font-bold">Add Tags:</h3>
