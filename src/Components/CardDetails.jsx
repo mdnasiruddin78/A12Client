@@ -132,7 +132,7 @@ const CardDetails = () => {
                     <div className="flex items-center justify-between mt-4 text-gray-500">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
-                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
+                                <button  onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
                                 <p className="text-xl font-bold text-green-500">{details?.vote}</p>
                             </span>
                             <span className="flex items-center">

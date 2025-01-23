@@ -17,7 +17,6 @@ const AdminProfile = () => {
     const { user } = useContext(authContext)
     const { register, handleSubmit, reset } = useForm();
     const axiosSecure = UseAxiosSecure()
-    const axiosPublic = UseAxiosPublic()
 
     const onSubmit = data => {
         const tagName = {
@@ -37,7 +36,7 @@ const AdminProfile = () => {
     const { data: recivedData = [] } = useQuery({
         queryKey: ['recivedData'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/addPost')
+            const res = await axiosSecure.get('/addPost')
             return res.data
         }
     })
@@ -57,9 +56,6 @@ const AdminProfile = () => {
             return res.data;
         }
     })
-
-    console.log(users)
-    console.log(recivedData)
 
     return (
         <div>

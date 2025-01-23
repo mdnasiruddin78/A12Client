@@ -11,9 +11,8 @@ import '../../Components/index/index.css';
 
 const MakeAnnounce = () => {
 
-    const axiosSecure = UseAxiosSecure()
+    const axiosSecure = UseAxiosSecure();
     const { register, handleSubmit, reset } = useForm();
-    const navigate = useNavigate()
     const [startDate, setStartDate] = useState(new Date());
 
     const onSubmit = data => {
@@ -31,7 +30,6 @@ const MakeAnnounce = () => {
                 if (res.data.insertedId) {
                     reset()
                     toast.success('Announcement Sent Successfull')
-                    navigate('/')
                 }
             })
     }
