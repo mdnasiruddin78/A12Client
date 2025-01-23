@@ -3,6 +3,7 @@ import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 import HomeCard from "./HomeCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import './index/index.css';
 
 
 const HomeMiddle = () => {
@@ -11,14 +12,20 @@ const HomeMiddle = () => {
     // const [search, setSearch] = useState('')
     // const [filter, setFilter] = useState('')
     // const [services, setServices] = useState([])
+    const [sort, setSort] = useState([])
 
-    const { data: recivedData = [],refetch } = useQuery({
+    const { data: recivedData = [] } = useQuery({
         queryKey: ['recivedData'],
         queryFn: async () => {
             const res = await axiosPublic.get('/addPost')
             return res.data
         }
     })
+
+    const handleSort = () => {
+        const sortBy = [...recivedData].sort((a, b) => b.vote - a.vote);
+        setSort(sortBy);
+    }
 
     // useEffect(() => {
     //     const fetchAllService = async () => {
@@ -60,13 +67,15 @@ const HomeMiddle = () => {
                     }
                 </select>
             </div> */}
+            <div className="flex justify-end py-4">
+                <button onClick={handleSort} className="btn adminColor">sort by popularity</button>
+            </div>
             <div className="grid grid-cols-1 gap-4">
                 {
-                    recivedData.map(recived => <HomeCard 
+                    sort.map(recived => <HomeCard
                         key={recived._id}
-                         recived={recived}
-                          refetch={refetch}
-                          ></HomeCard>)
+                        recived={recived}
+                    ></HomeCard>)
                 }
             </div>
         </div>
