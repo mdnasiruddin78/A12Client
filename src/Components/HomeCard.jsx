@@ -7,7 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 const HomeCard = ({ recived }) => {
 
     const axiosPublic = UseAxiosPublic()
-
     const { _id, description, image, name, tag, title, time ,vote } = recived;
 
     function timeAgo(date) {
@@ -40,10 +39,11 @@ const HomeCard = ({ recived }) => {
     // const { data: comments = [] } = useQuery({
     //     queryKey: ['comments'],
     //     queryFn: async () => {
-    //         const res = await axiosPublic.get(`/allComment/${recived?._id}`)
+    //         const res = await axiosPublic.get(`/allComment/${_id}`)
     //         return res.data;
     //     }
     // })
+
 
     return (
         <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-white rounded-lg hover:scale-105">
@@ -67,7 +67,7 @@ const HomeCard = ({ recived }) => {
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">
                     <span className="flex items-center">
-                        <span className="ml-1 text-green-500">voteCount • {vote}</span>
+                        <span className="ml-1 text-green-500">Vote Count • {vote}</span>
                     </span>
                 </div>
                 <span className="text-sm">View 100 answers</span>

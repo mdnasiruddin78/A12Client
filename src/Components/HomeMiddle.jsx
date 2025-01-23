@@ -62,7 +62,11 @@ const HomeMiddle = () => {
             </div> */}
             <div className="grid grid-cols-1 gap-4">
                 {
-                    recivedData.map(recived => <HomeCard key={recived._id} recived={recived} refetch={refetch}></HomeCard>)
+                    recivedData.map(recived => <HomeCard 
+                        key={recived._id}
+                         recived={recived}
+                          refetch={refetch}
+                          ></HomeCard>)
                 }
             </div>
         </div>
