@@ -15,6 +15,7 @@ import UseNotification from "../Hooks/UseNotification";
 import '../Components/index/index.css';
 import AdminProfile from "../Pages/Dashboard/AdminProfile";
 import MyProfile from "../Pages/Dashboard/MyProfile";
+import toast from "react-hot-toast";
 
 
 const Dashboard = () => {
@@ -27,7 +28,8 @@ const Dashboard = () => {
     const handleLogout = () => {
         logoutUser()
             .then(result => {
-                console.log(result)
+                // console.log(result)
+                toast.success('Logout Successfull')
             })
             .catch(error => {
                 // console.log(error)

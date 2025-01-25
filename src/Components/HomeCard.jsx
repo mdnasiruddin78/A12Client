@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { axiosSecure } from "../Hooks/UseAxiosSecure";
 import UseAxiosPublic from "../Hooks/UseAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 

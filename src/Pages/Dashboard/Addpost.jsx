@@ -7,37 +7,50 @@ import { Link, useNavigate } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import '../../Components/index/index.css';
+import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Addpost = () => {
 
     const axiosSecure = UseAxiosSecure()
+    const axiosPublic = UseAxiosPublic()
     const { user } = useContext(authContext)
     const { register, handleSubmit, reset } = useForm();
     const [tags, setTags] = useState()
     const navigate = useNavigate()
 
-    const onSubmit = data => {
-        const addPost = {
-            name: data.name,
-            image: user.photoURL,
-            title: data.title,
-            tag: tags,
-            email: user.email,
-            description: data.description,
-            time: Date(),
-            vote: 0,
+    const onSubmit = async data => {
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            },
+        })
+        console.log(res.data)
+        if (res.data.success) {
+            const addPost = {
+                name: data.name,
+                image: res.data.data.display_url,
+                title: data.title,
+                tag: tags,
+                email: user.email,
+                description: data.description,
+                time: Date(),
+                vote: 0,
+            }
+            console.log(addPost)
+            axiosSecure.post('/addPost', addPost)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.insertedId) {
+                        reset()
+                        toast.success('Post Successfully Added!')
+                        navigate('/dashboard/mypost')
+                    }
+                })
         }
-        console.log(addPost)
-        axiosSecure.post('/addPost', addPost)
-            .then(res => {
-                console.log(res.data)
-                if (res.data.insertedId) {
-                    reset()
-                    toast.success('Post Successfully Added!')
-                    navigate('/dashboard/mypost')
-                }
-            })
     }
 
     const { data: allTag = [] } = useQuery({
@@ -86,7 +99,13 @@ const Addpost = () => {
                                     <label className="label">
                                         <span className="label-text">Post Title</span>
                                     </label>
-                                    <input type="text" {...register("title", { required: true })} placeholder="Service Title" className="input input-bordered" />
+                                    <input type="text" {...register("title", { required: true })} placeholder="Title" className="input input-bordered" />
+                                </div>
+                                <div className="form-control flex-1">
+                                    <label className="label">
+                                        <span className="label-text">Author Image</span>
+                                    </label>
+                                    <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                                 </div>
                             </div>
                             {/* form second row */}
@@ -132,7 +151,7 @@ const Addpost = () => {
                                 <textarea {...register("description", { required: true })} className="textarea textarea-bordered" placeholder="Description" required></textarea>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn rounded-full bg-gray-800 text-white">Add Service</button>
+                                <button className="btn rounded-full bg-gray-800 text-white">Add Post</button>
                             </div>
                         </form>
                     </div>

@@ -12,7 +12,7 @@ const HomeMiddle = () => {
     const [sort, setSort] = useState([])
 
     const { data: recivedData = [] } = useQuery({
-        queryKey: ['recivedData',search],
+        queryKey: ['recivedData', search],
         queryFn: async () => {
             const res = await axiosPublic.get(`/addPost?search=${search}`)
             setSort(res.data)
@@ -24,14 +24,6 @@ const HomeMiddle = () => {
         const sortBy = [...recivedData].sort((a, b) => b.vote - a.vote);
         setSort(sortBy);
     }
-
-    // const { data: allTag = [] } = useQuery({
-    //     queryKey: ['allTag'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get('/addTags')
-    //         return res.data
-    //     }
-    // })
 
     return (
         <div>
