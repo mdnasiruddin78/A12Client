@@ -120,7 +120,9 @@ const ManageUser = () => {
                                     }
                                 </td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs">details</button>
+                                    <div>
+                                        {user && user?.status === 'member' ? <button className="bg-black text-white btn btn-ghost btn-xs">Member</button> : <button className="bg-gray-500 btn btn-ghost btn-xs">No</button>}
+                                    </div>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost btn-xs"><RiDeleteBin5Line className="text-2xl text-red-600" /></button>
