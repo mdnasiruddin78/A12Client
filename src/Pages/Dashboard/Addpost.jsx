@@ -138,11 +138,6 @@ const Addpost = () => {
                     </div>
                 }
             </div>
-            {/* <div>
-                {
-                    memberShip.map(card => )
-                }
-            </div> */}
         </div>
     );
 };
