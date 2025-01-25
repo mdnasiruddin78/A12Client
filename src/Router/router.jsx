@@ -51,6 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
+    errorElement: <Error></Error>,
     element: <Privateroute><Dashboard></Dashboard></Privateroute>,
     children: [
       // normal user route
