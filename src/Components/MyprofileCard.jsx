@@ -5,13 +5,10 @@ import {
 import {
     FacebookIcon,
 } from "react-share";
-import UseAxiosSecure from "../Hooks/UseAxiosSecure";
-import { useQuery } from "@tanstack/react-query";
 
 
 const MyprofileCard = ({ myPost }) => {
 
-    const axiosSecure = UseAxiosSecure()
     const { _id, description, image, name, tag, title, time, vote,commentCount } = myPost;
     const shareUrl = 'https://www.facebook.com/profile.php'
 
@@ -41,14 +38,6 @@ const MyprofileCard = ({ myPost }) => {
 
     // const oldDate = new Date("Mon Jan 01 1990 00:00:00 GMT+0600 (Bangladesh Standard Time)");
     const newDate = new Date(time);
-
-    // const { data: comments = [] } = useQuery({
-    //     queryKey: ['comments'],
-    //     queryFn: async () => {
-    //         const res = await axiosSecure.get(`/allComment/${_id}`)
-    //         return res.data;
-    //     }
-    // })
 
     return (
         <div className="">

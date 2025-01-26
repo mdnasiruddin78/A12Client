@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
-import UseAxiosPublic from "../Hooks/UseAxiosPublic";
-import { useQuery } from "@tanstack/react-query";
-
 
 const HomeCard = ({ recived }) => {
 
-    const axiosPublic = UseAxiosPublic()
     const { _id, description, image, name, tag, title, time ,vote,commentCount } = recived;
 
     function timeAgo(date) {
@@ -34,15 +30,6 @@ const HomeCard = ({ recived }) => {
 
     // const oldDate = new Date("Mon Jan 01 1990 00:00:00 GMT+0600 (Bangladesh Standard Time)");
     const newDate = new Date(time);
-
-    // const { data: comments = [] } = useQuery({
-    //     queryKey: ['comments'],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get(`/allComment/${_id}`)
-    //         return res.data;
-    //     }
-    // })
-
 
     return (
         <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-white rounded-lg hover:scale-105">
