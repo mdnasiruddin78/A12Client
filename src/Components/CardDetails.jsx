@@ -63,17 +63,20 @@ const CardDetails = () => {
     const newDate = new Date(time);
 
     const onSubmit = data => {
+        const commentCount = (details?.commentCount || 0) + 1
+        console.log(commentCount)
         const commentInfo = {
             email: user.email,
             title: details.title,
             description: data.description,
             postId: details._id,
+            commentCount: commentCount,
         }
         console.log(commentInfo)
         axiosPublic.post('/allComment', commentInfo)
             .then(res => {
                 console.log(res.data)
-                if (res.data.insertedId) {
+                if (res.data.result.insertedId) {
                     reset()
                     toast.success('Comment Successfully!')
                 }
@@ -132,7 +135,7 @@ const CardDetails = () => {
                     <div className="flex items-center justify-between mt-4 text-gray-500">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
-                                <button  onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
+                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
                                 <p className="text-xl font-bold text-green-500">{details?.vote}</p>
                             </span>
                             <span className="flex items-center">

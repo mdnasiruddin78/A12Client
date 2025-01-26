@@ -12,7 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 const MyprofileCard = ({ myPost }) => {
 
     const axiosSecure = UseAxiosSecure()
-    const { _id, description, image, name, tag, title, time, vote } = myPost;
+    const { _id, description, image, name, tag, title, time, vote,commentCount } = myPost;
     const shareUrl = 'https://www.facebook.com/profile.php'
 
     function timeAgo(date) {
@@ -76,21 +76,7 @@ const MyprofileCard = ({ myPost }) => {
                             <span className="ml-1 text-green-500">Vote Count • {vote}</span>
                         </span>
                         <span className="flex items-center">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="w-5 h-5 text-gray-400"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M12 6.75V18m0 0h3.75m-3.75 0H8.25"
-                                />
-                            </svg>
-                            <span className="ml-1">116</span>
+                            <span className="ml-1 text-blue-500">Comment • {commentCount || 0}</span>
                         </span>
                     </div>
                     <FacebookShareButton url={shareUrl}>

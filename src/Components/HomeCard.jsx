@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 const HomeCard = ({ recived }) => {
 
     const axiosPublic = UseAxiosPublic()
-    const { _id, description, image, name, tag, title, time ,vote } = recived;
+    const { _id, description, image, name, tag, title, time ,vote,commentCount } = recived;
 
     function timeAgo(date) {
         const now = new Date();
@@ -69,7 +69,7 @@ const HomeCard = ({ recived }) => {
                         <span className="ml-1 text-green-500">Vote Count • {vote}</span>
                     </span>
                 </div>
-                <span className="text-sm">View 100 answers</span>
+                <span className="text-sm text-blue-500">Comment • {commentCount || 0}</span>
             </div>
         </Link>
     );
