@@ -49,7 +49,7 @@ const Navbar = () => {
                             <IoNotifications className="text-2xl" />
                         </Badge>
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full border-2 border-green-500" src={user?.photoURL} alt="not found" /></div>
+                            <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full border-2 border-blue-500" src={user?.photoURL} alt="not found" /></div>
                             <ul tabIndex={0} className="dropdown-content menu bg-base-200 rounded-box z-[1] w-52 p-2 shadow">
                                 <li><h3 className="font-bold">{user?.displayName}</h3></li>
                                 <li>

@@ -10,7 +10,7 @@ const MyProfile = () => {
 
     const { user } = useContext(authContext)
     const axiosSecure = UseAxiosSecure()
-    const { data: myPosts = []} = useQuery({
+    const { data: myPosts = [] } = useQuery({
         queryKey: ['myPosts'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/emailLimit/${user?.email}`)
@@ -35,16 +35,16 @@ const MyProfile = () => {
             <h3 className="text-xl font-bold">My Profile:</h3>
             <div className="flex items-center space-x-4">
                 <div>
-                    <img className="w-32 h-32 rounded-full" src={user?.photoURL} alt="" />
+                    <img className="w-32 h-32 rounded-full border-2 border-blue-500" src={user?.photoURL} alt="" />
                 </div>
                 <div>
                     <p className="">Name: {user?.displayName}</p>
                     <p className="">Email: {user?.email}</p>
-                    <p>
+                    <div>
                         {
-                            users?.badge === 'Gold' ? <div>Badge: <span className="btn btn-ghost btn-xs bg-orange-600">{users?.badge}</span></div> : <div>Badge: <span className="btn btn-ghost btn-xs bg-brown-600">{users?.badge}</span></div>
+                            users?.badge === 'Gold' ? <div>Badge: <p className="btn btn-ghost btn-xs bg-orange-500">Gold</p></div> : <div>Badge: <p className="btn btn-ghost btn-xs bg-brown-600 text-white">Bronze</p></div>
                         }
-                    </p>
+                    </div>
                 </div>
             </div>
             <h3 className="text-xl font-bold py-4">My 3 Recent Posts:</h3>

@@ -65,7 +65,7 @@ const AdminProfile = () => {
             <h3 className="text-xl font-bold">Admin Profile:</h3>
             <div className="flex items-center space-x-4">
                 <div>
-                    <img className="w-32 h-32 rounded-full" src={user?.photoURL} alt="" />
+                    <img className="w-32 h-32 rounded-full border-2 border-blue-600" src={user?.photoURL} alt="" />
                 </div>
                 <div>
                     <p className="">Name: {user?.displayName}</p>
