@@ -52,7 +52,7 @@ const AdminProfile = () => {
     const { data: comment = [] } = useQuery({
         queryKey: ['comment'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/allComent')
+            const res = await axiosSecure.get('/allComment')
             return res.data;
         }
     })

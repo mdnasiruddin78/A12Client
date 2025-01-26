@@ -4,15 +4,18 @@ import { MdAdminPanelSettings } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 
 const ManageUser = () => {
 
     const axiosSecure = UseAxiosSecure()
+    const [search, setSearch] = useState('')
+
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', search],
         queryFn: async () => {
-            const res = await axiosSecure.get('/users', {
+            const res = await axiosSecure.get(`/users?search=${search}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('access-token')}`
                 }
@@ -85,6 +88,17 @@ const ManageUser = () => {
                 <h3 className="text-xl font-semibold">Total Users: {users.length}</h3>
             </div>
             <div className="divider"></div>
+            <div className="flex justify-end">
+                <input
+                    className='input input-bordered w-full max-w-xs'
+                    type='text'
+                    name='search'
+                    onChange={e => setSearch(e.target.value)}
+                    value={search}
+                    placeholder='Enter A Email'
+                    aria-label='Enter A Email'
+                />
+            </div>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
