@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { authContext } from "../../Provider/Authprovider";
 import { useForm } from "react-hook-form";
 import '../../Components/index/index.css';
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 import { FaCommentDots, FaUsers } from "react-icons/fa";
 import { BsFillPostcardFill } from "react-icons/bs";
-import { PieChart } from 'react-minimal-pie-chart';
+import React from "react";
+import { Chart } from "react-google-charts";
 
 
 const AdminProfile = () => {
@@ -17,6 +17,16 @@ const AdminProfile = () => {
     const { user } = useContext(authContext)
     const { register, handleSubmit, reset } = useForm();
     const axiosSecure = UseAxiosSecure()
+    const [allUser, setAllUser] = useState([]);
+    const [recived ,setRecived] = useState([]);
+    const [comments,setComments] = useState([])
+
+    const data = [
+        ["Element", "Density", { role: "style" }],
+        ["Total-Users", allUser.length, "#b87333"], // RGB value
+        ["Total-Posts", recived.length, "silver"], // English color name
+        ["Total-Comments",comments.length , "gold"],
+    ];
 
     const onSubmit = data => {
         const tagName = {
@@ -37,6 +47,7 @@ const AdminProfile = () => {
         queryKey: ['recivedData'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addPost')
+            setRecived(res.data)
             return res.data
         }
     })
@@ -45,6 +56,7 @@ const AdminProfile = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
+            setAllUser(res.data)
             return res.data;
         }
     })
@@ -53,6 +65,7 @@ const AdminProfile = () => {
         queryKey: ['comment'],
         queryFn: async () => {
             const res = await axiosSecure.get('/allComment')
+            setComments(res.data)
             return res.data;
         }
     })
@@ -102,14 +115,7 @@ const AdminProfile = () => {
                 </div>
             </div>
             <h3 className="text-xl font-bold">pie chart:</h3>
-            <PieChart
-                className="w-72"
-                data={[
-                    { title: 'number of post', value: `${recivedData.length}`, color: '#E38627' },
-                    { title: 'number of user', value: `${users.length}`, color: '#C13C37' },
-                    { title: 'number of comment', value: `${comment.length}`, color: '#6A2135' },
-                ]}
-            />
+            <Chart chartType="ColumnChart" width="100%" height="100%" data={data} className="mb-5"/>
             <h3 className="text-xl font-bold">Add Tags:</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-2">
                 <div>
