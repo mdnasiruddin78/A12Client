@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
 
@@ -15,37 +17,45 @@ const Register = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
 
-    const onSubmit = data => {
-        console.log(data)
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser)
-                updateUserProfile(data.name, data.photo)
-                    .then(result => {
-                        const userInfo = {
-                            name: data.name,
-                            email: data.email,
-                        }
-                        // create user in the database
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    console.log('user added in database')
-                                    reset()
-                                    toast.success('Registration Successfull Please Login');
-                                }
-                            })
-                    })
-                logoutUser()
-                navigate("/login")
-            })
-            .catch(error => {
-                console.log(error)
-                toast.error(error.message);
-            })
+    const onSubmit = async data => {
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            },
+        })
+        if (res.data.success) {
+            createUser(data.email, data.password)
+                .then(result => {
+                    const loggedUser = result.user;
+                    console.log(loggedUser)
+                    updateUserProfile(data.name, res.data.data.display_url)
+                        .then(result => {
+                            const userInfo = {
+                                name: data.name,
+                                email: data.email,
+                                badge: 'Bronze',
+                            }
+                            // create user in the database
+                            axiosPublic.post('/users', userInfo)
+                                .then(res => {
+                                    if (res.data.insertedId) {
+                                        console.log('user added in database')
+                                        reset()
+                                        toast.success('Registration Successfull Please Login');
+                                    }
+                                })
+                        })
+                    logoutUser()
+                    navigate("/login")
+                })
+                .catch(error => {
+                    console.log(error)
+                    toast.error(error.message);
+                })
+        }
     }
-    // https://i.ibb.co.com/94WfS9M/boy2.jpg
+
     return (
         <div className='flex justify-center items-center bg-base-200'>
             <Helmet>
@@ -96,16 +106,9 @@ const Register = () => {
                                 className='block mb-2 text-sm font-medium text-gray-600 '
                                 htmlFor='photo'
                             >
-                                Photo URL
+                               User Image
                             </label>
-                            <input
-                                id='photo'
-                                autoComplete='photo'
-                                name='photo'
-                                {...register("photo", { required: true })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
-                                type='text'
-                            />
+                            <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                         </div>
                         <div className='mt-4'>
                             <label
@@ -167,7 +170,7 @@ const Register = () => {
 
                         <Link
                             to='/login'
-                            className='text-xs text-gray-500 uppercase  hover:underline'
+                            className='text-xs uppercase font-semibold hover:underline'
                         >
                             or sign in
                         </Link>

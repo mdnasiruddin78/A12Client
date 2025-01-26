@@ -19,6 +19,14 @@ const MyProfile = () => {
         }
     })
 
+    const { data: users = [] } = useQuery({
+        queryKey: ['users'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/singleUser/${user?.email}`)
+            return res.data;
+        }
+    })
+
     return (
         <div>
             <Helmet>
@@ -32,6 +40,11 @@ const MyProfile = () => {
                 <div>
                     <p className="">Name: {user?.displayName}</p>
                     <p className="">Email: {user?.email}</p>
+                    <p>
+                        {
+                            users?.badge === 'Gold' ? <div>Badge: <span className="btn btn-ghost btn-xs bg-orange-600">{users?.badge}</span></div> : <div>Badge: <span className="btn btn-ghost btn-xs bg-brown-600">{users?.badge}</span></div>
+                        }
+                    </p>
                 </div>
             </div>
             <h3 className="text-xl font-bold py-4">My 3 Recent Posts:</h3>

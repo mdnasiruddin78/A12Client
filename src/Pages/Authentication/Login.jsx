@@ -108,7 +108,7 @@ const Login = () => {
 
                         <Link
                             to='/register'
-                            className='text-xs text-gray-500 uppercase  hover:underline'
+                            className='text-xs font-semibold uppercase  hover:underline'
                         >
                             or sign up
                         </Link>
