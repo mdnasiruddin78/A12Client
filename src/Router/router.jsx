@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import CardDetails from "../Components/CardDetails";
 import Comment from "../Pages/Dashboard/Comment";
 import TakeAction from "../Pages/Dashboard/TakeAction";
+import MessageByAdmin from "../Pages/Dashboard/MessageByAdmin";
 
 
 const router = createBrowserRouter([
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "mypost",
         element: <Mypost></Mypost>,
+      },
+      {
+        path: 'messageBy',
+        element: <MessageByAdmin></MessageByAdmin>,
       },
       {
         path: "comment/:id",

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const MessageForm = ({ recivedData }) => {
 
     const { reportEmail, comment, reaction } = recivedData;
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
     const [startDate, setStartDate] = useState(new Date());
     const axiosSecure = UseAxiosSecure();
 

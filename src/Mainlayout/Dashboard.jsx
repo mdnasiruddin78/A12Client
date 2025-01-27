@@ -3,7 +3,7 @@ import { CgProfile } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
 import { HiMiniUsers } from "react-icons/hi2";
 import { IoNotifications } from "react-icons/io5";
-import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
+import { MdAdminPanelSettings, MdAnnouncement, MdCardMembership, MdMessage, MdOutlinePhoneAndroid, MdReport } from "react-icons/md";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import logo from '../assets/83a58a6b-7eb0-49f5-ac35-1a7a3bd00b00.jfif';
 import UseAdmin from "../Hooks/UseAdmin";
@@ -61,6 +61,7 @@ const Dashboard = () => {
                                 <li><NavLink to="myprofile"><CgProfile />My Profile</NavLink></li>
                                 <li><NavLink to="addpost"><MdOutlinePhoneAndroid />Add Post</NavLink></li>
                                 <li><NavLink to="mypost"><BsFillPostcardFill />My Posts</NavLink></li>
+                                <li><NavLink to="messageBy"><MdMessage />Message By Admin</NavLink></li>
                             </>
                     }
                     {/* shared nav links */}

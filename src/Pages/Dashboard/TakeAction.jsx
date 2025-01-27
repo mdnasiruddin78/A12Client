@@ -9,7 +9,7 @@ const TakeAction = () => {
   const { email } = useParams()
   const axiosSecure = UseAxiosSecure()
 
-  const { data: recivedData = [], refetch } = useQuery({
+  const { data: recivedData = [],refetch} = useQuery({
     queryKey: ['recivedData'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/filter/${email}`)

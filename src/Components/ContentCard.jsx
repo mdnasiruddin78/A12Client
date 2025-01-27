@@ -9,7 +9,7 @@ const ContentCard = ({ content }) => {
                 <img
                     src={image}
                     alt="Profile"
-                    className="w-12 h-12 rounded-full"
+                    className="w-12 h-12 rounded-full border-2 border-blue-500"
                 />
                 <div className="ml-4">
                     <h2 className="font-semibold text-lg text-white">{name}</h2>
