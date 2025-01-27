@@ -2,14 +2,16 @@ import { useParams } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import ReportToAdmin from "../../Components/ReportToAdmin";
+import { Helmet } from "react-helmet-async";
 
 
 const Comment = () => {
 
     const { id } = useParams()
+    console.log(id)
     const axiosSecure = UseAxiosSecure()
 
-    const { data: comments = [] } = useQuery({
+    const { data: comments = [],refetch } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/allComment/${id}`)
@@ -17,8 +19,13 @@ const Comment = () => {
         }
     })
 
+
+
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Comment-Report</title>
+            </Helmet>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -33,8 +40,8 @@ const Comment = () => {
                     </thead>
                     <tbody>
                         {
-                            comments.map((comment,index) => <ReportToAdmin
-                                key={comment._id}
+                            comments.map((comment, index) => <ReportToAdmin
+                                key={comment._id} unikeId={id} refetch={refetch}
                                 comment={comment} index={index}></ReportToAdmin>)
                         }
                     </tbody>

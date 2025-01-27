@@ -5,13 +5,13 @@ import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 
 
-const ReportToAdmin = ({ comment, index }) => {
+const ReportToAdmin = ({ comment, index, unikeId ,refetch}) => {
 
     const { _id, email, description } = comment
     const [feedback, setFeedback] = useState()
     const axiosSecure = UseAxiosSecure()
     const { user } = useContext(authContext)
-
+    console.log('id',_id,'unikeId',unikeId)
     const handleReadMore = (text) => {
         Swal.fire({
             title: "Comment Text Details",
@@ -31,7 +31,12 @@ const ReportToAdmin = ({ comment, index }) => {
             .then(res => {
                 console.log(res.data)
                 if (res.data.insertedId) {
-                    toast.success('Report Send Successfully!')
+                    axiosSecure.patch(`/allComment/${_id}`, {reaction: feedback})
+                    .then(res => {
+                        console.log(res.data)
+                        refetch()
+                        toast.success('Report Done')
+                    })
                 }
             })
     }
@@ -65,7 +70,7 @@ const ReportToAdmin = ({ comment, index }) => {
                 </div>
             </th>
             <th>
-                <button disabled={!feedback} onClick={() => handleFeedback(feedback)} className="btn btn-ghost btn-xs bg-red-500 text-white">Report</button>
+                <button disabled={!feedback || comment.reaction} onClick={() => handleFeedback(feedback)} className="btn btn-ghost btn-xs bg-red-500 text-white">Report</button>
             </th>
         </tr>
     );

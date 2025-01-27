@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import MessageForm from "../../Components/MessageForm";
+import { Helmet } from "react-helmet-async";
 
 
 const TakeAction = () => {
@@ -9,7 +10,7 @@ const TakeAction = () => {
   const { email } = useParams()
   const axiosSecure = UseAxiosSecure()
 
-  const { data: recivedData = [],refetch} = useQuery({
+  const { data: recivedData = [], refetch } = useQuery({
     queryKey: ['recivedData'],
     queryFn: async () => {
       const res = await axiosSecure.get(`/filter/${email}`)
@@ -20,6 +21,9 @@ const TakeAction = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Dashboard | Take-Actionform</title>
+      </Helmet>
       <h3 className="text-xl font-bold">Send A Message:</h3>
       <div>
         <MessageForm recivedData={recivedData}></MessageForm>

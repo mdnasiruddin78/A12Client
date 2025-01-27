@@ -3,6 +3,7 @@ import { authContext } from "../../Provider/Authprovider";
 import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import AdminMessage from "../../Components/AdminMessage";
+import { Helmet } from "react-helmet-async";
 
 
 const MessageByAdmin = () => {
@@ -20,6 +21,9 @@ const MessageByAdmin = () => {
     console.log(getData)
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Admin-Message</title>
+            </Helmet>
             <h3 className="text-xl font-bold mb-3">Message By Admin:</h3>
             <div className="grid grid-cols-1 gap-4">
                 {
