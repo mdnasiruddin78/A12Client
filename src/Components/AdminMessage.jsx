@@ -11,7 +11,7 @@ const AdminMessage = ({ data }) => {
                 <p className="text-gray-500 text-sm">Date: {date && format(new Date(date), 'P')}</p>
             </div>
             <p className="border-2 bg-red-100 border-red-400 rounded-md text-center p-4">Your Comment: {reportText}</p>
-            <p>Title: {title}</p>
+            <p className="font-semibold">Title: {title}</p>
             <p className="break-all">Description: {description}</p>
         </div>
     );
