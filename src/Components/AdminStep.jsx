@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const AdminStep = ({ report, index }) => {
-    const { comment, reaction, reportBy, reportEmail } = report;
 
+    const { comment, reaction, reportBy, reportEmail } = report;
     const handleReadMore = (text) => {
         Swal.fire({
             title: "Comment Text Details",
@@ -17,10 +18,10 @@ const AdminStep = ({ report, index }) => {
                 {index + 1}
             </th>
             <td>
-                <p className="font-bold">{reportBy}</p>
+                <p className="font-bold text-blue-500">{reportBy}</p>
             </td>
             <td>
-                <p className="font-bold">{reportEmail}</p>
+                <p className="font-bold text-red-500">{reportEmail}</p>
             </td>
             <td>
                 {comment.substring(0, 20)}<span onClick={() => handleReadMore(comment)} className="btn btn-ghost btn-xs text-blue-800">...Read More</span>
@@ -29,7 +30,7 @@ const AdminStep = ({ report, index }) => {
                 {reaction}
             </th>
             <th>
-                <button className="btn btn-ghost btn-xs bg-green-600 text-white">Take Action</button>
+                <Link to={`/dashboard/adminstep/${reportEmail}`} className="btn btn-ghost btn-xs bg-green-600 text-white">Take Action</Link>
             </th>
         </tr>
     );

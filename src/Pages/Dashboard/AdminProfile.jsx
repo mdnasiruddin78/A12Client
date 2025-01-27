@@ -43,10 +43,11 @@ const AdminProfile = () => {
             })
     }
 
-    const { data: recivedData = [] } = useQuery({
+    const { data: recivedData = [],refetch } = useQuery({
         queryKey: ['recivedData'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addPost')
+            refetch()
             setRecived(res.data)
             return res.data
         }
@@ -56,6 +57,7 @@ const AdminProfile = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
+            refetch()
             setAllUser(res.data)
             return res.data;
         }
@@ -65,6 +67,7 @@ const AdminProfile = () => {
         queryKey: ['comment'],
         queryFn: async () => {
             const res = await axiosSecure.get('/allComment')
+            refetch()
             setComments(res.data)
             return res.data;
         }

@@ -19,6 +19,7 @@ import MakeAnnounce from "../Pages/Dashboard/MakeAnnounce";
 import AdminRoute from "./AdminRoute";
 import CardDetails from "../Components/CardDetails";
 import Comment from "../Pages/Dashboard/Comment";
+import TakeAction from "../Pages/Dashboard/TakeAction";
 
 
 const router = createBrowserRouter([
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
         path: "makeAnnouncement",
         element: <AdminRoute><MakeAnnounce></MakeAnnounce></AdminRoute>,
       },
+      {
+        path: "adminstep/:email",
+        element: <TakeAction></TakeAction>,
+      }
     ]
   }
 ]);
