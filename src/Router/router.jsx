@@ -95,7 +95,7 @@ const router = createBrowserRouter([
       },
       {
         path: "adminstep/:email",
-        element: <TakeAction></TakeAction>,
+        element: <AdminRoute><TakeAction></TakeAction></AdminRoute>,
       }
     ]
   }
