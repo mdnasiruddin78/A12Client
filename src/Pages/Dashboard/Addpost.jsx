@@ -38,7 +38,7 @@ const Addpost = () => {
                 email: user.email,
                 description: data.description,
                 time: Date(),
-                vote: 0,
+                vote: [],
             }
             // console.log(addPost)
             axiosSecure.post('/addPost', addPost)

@@ -33,7 +33,7 @@ const CardDetails = () => {
         }
     })
 
-    const { _id, description, image, name, tag, title, time } = details;
+    const { _id, description, image, name, tag, title, time, vote } = details;
 
     function timeAgo(date) {
         const now = new Date();
@@ -84,25 +84,26 @@ const CardDetails = () => {
     }
 
     const handleUpvote = details => {
-        const newVote = details.vote + 1
+        const emailCollection = [...vote, user?.email]
         const voteInfo = {
-            vote: newVote,
+            vote: emailCollection,
         }
+        console.log(voteInfo)
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 refetch()
             })
     }
 
     const handleDowneVote = details => {
-        const newVote = details.vote - 1
+        const emailCollection = [...vote, user?.email]
         const voteInfo = {
-            vote: newVote,
+            vote: emailCollection,
         }
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                // console.log(res.data)
+                console.log(res.data)
                 refetch()
             })
     }
@@ -136,7 +137,7 @@ const CardDetails = () => {
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
                                 <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
-                                <p className="text-xl font-bold text-green-500">{details?.vote}</p>
+                                <p className="text-xl font-bold text-green-500">{vote?.length || 0}</p>
                             </span>
                             <span className="flex items-center">
                                 <button disabled={details.vote < 1} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>

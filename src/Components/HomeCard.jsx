@@ -53,7 +53,7 @@ const HomeCard = ({ recived }) => {
             <div className="flex items-center justify-between mt-4 text-gray-500">
                 <div className="flex items-center space-x-2">
                     <span className="flex items-center">
-                        <span className="ml-1 text-green-500">Vote Count • {vote}</span>
+                        <span className="ml-1 text-green-500">Vote Count • {vote?.length}</span>
                     </span>
                 </div>
                 <span className="text-sm text-blue-500">Comment • {commentCount || 0}</span>
