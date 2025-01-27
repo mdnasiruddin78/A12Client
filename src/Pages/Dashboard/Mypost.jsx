@@ -35,7 +35,7 @@ const Mypost = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/addEmail/${myPost?._id}`)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         if (res.data.deletedCount > 0) {
                             refetch()
                             Swal.fire({

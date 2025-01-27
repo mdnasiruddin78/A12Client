@@ -35,7 +35,7 @@ const MakeAnnounce = () => {
             }
             axiosSecure.post('/announcement', announcement)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data.insertedId) {
                         reset()
                         toast.success('Announcement Sent Successfull')

@@ -64,7 +64,7 @@ const CardDetails = () => {
 
     const onSubmit = data => {
         const commentCount = (details?.commentCount || 0) + 1
-        console.log(commentCount)
+        // console.log(commentCount)
         const commentInfo = {
             email: user.email,
             title: details.title,
@@ -72,10 +72,10 @@ const CardDetails = () => {
             postId: details._id,
             commentCount: commentCount,
         }
-        console.log(commentInfo)
+        // console.log(commentInfo)
         axiosPublic.post('/allComment', commentInfo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.result.insertedId) {
                     reset()
                     toast.success('Comment Successfully!')
@@ -90,7 +90,7 @@ const CardDetails = () => {
         }
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 refetch()
             })
     }
@@ -102,7 +102,7 @@ const CardDetails = () => {
         }
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 refetch()
             })
     }

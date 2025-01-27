@@ -32,10 +32,10 @@ const AdminProfile = () => {
         const tagName = {
             tag: data.tag,
         }
-        console.log(tagName)
+        // console.log(tagName)
         axiosSecure.post('/addTags', tagName)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.insertedId) {
                     reset()
                     toast.success('Tag Added Successfully!')

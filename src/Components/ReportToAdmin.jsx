@@ -11,7 +11,7 @@ const ReportToAdmin = ({ comment, index, unikeId ,refetch}) => {
     const [feedback, setFeedback] = useState()
     const axiosSecure = UseAxiosSecure()
     const { user } = useContext(authContext)
-    console.log('id',_id,'unikeId',unikeId)
+
     const handleReadMore = (text) => {
         Swal.fire({
             title: "Comment Text Details",
@@ -26,14 +26,14 @@ const ReportToAdmin = ({ comment, index, unikeId ,refetch}) => {
             reportEmail: email,
             comment: description,
         }
-        console.log(report)
+        // console.log(report)
         axiosSecure.post('/feedback', report)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 if (res.data.insertedId) {
                     axiosSecure.patch(`/allComment/${_id}`, {reaction: feedback})
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
                         refetch()
                         toast.success('Report Done')
                     })

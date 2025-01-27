@@ -18,7 +18,7 @@ const MessageByAdmin = () => {
             return res.data
         }
     })
-    console.log(getData)
+    // console.log(getData)
     return (
         <div>
             <Helmet>

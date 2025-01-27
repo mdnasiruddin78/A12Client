@@ -15,7 +15,7 @@ const Login = () => {
     const location = useLocation()
 
     const onSubmit = data => {
-        console.log(data)
+        // console.log(data)
         signInUser(data.email, data.password)
         .then(result => {
             const user = result.user;
@@ -24,7 +24,7 @@ const Login = () => {
             toast.success('Login Successfull')
         })
         .catch(error => {
-            console.log(error)
+            // console.log(error)
             toast.error(error.message)
         })
         reset()

@@ -22,7 +22,7 @@ const MessageForm = ({ recivedData }) => {
         }
         axiosSecure.post('/restrictionMessage',restriction)
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
             if(res.data.insertedId){
                 toast.success('Message Send Successfull!')
             }

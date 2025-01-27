@@ -8,7 +8,6 @@ import { Helmet } from "react-helmet-async";
 const Comment = () => {
 
     const { id } = useParams()
-    console.log(id)
     const axiosSecure = UseAxiosSecure()
 
     const { data: comments = [],refetch } = useQuery({

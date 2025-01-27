@@ -28,7 +28,7 @@ const Register = () => {
             createUser(data.email, data.password)
                 .then(result => {
                     const loggedUser = result.user;
-                    console.log(loggedUser)
+                    // console.log(loggedUser)
                     updateUserProfile(data.name, res.data.data.display_url)
                         .then(result => {
                             const userInfo = {
@@ -40,7 +40,7 @@ const Register = () => {
                             axiosPublic.post('/users', userInfo)
                                 .then(res => {
                                     if (res.data.insertedId) {
-                                        console.log('user added in database')
+                                        // console.log('user added in database')
                                         reset()
                                         toast.success('Registration Successfull Please Login');
                                     }
@@ -50,7 +50,7 @@ const Register = () => {
                     navigate("/login")
                 })
                 .catch(error => {
-                    console.log(error)
+                    // console.log(error)
                     toast.error(error.message);
                 })
         }

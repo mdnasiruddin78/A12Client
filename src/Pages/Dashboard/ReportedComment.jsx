@@ -16,7 +16,7 @@ const ReportedComment = () => {
             return res.data
         }
     })
-    console.log(reportComment)
+    // console.log(reportComment)
     return (
         <div>
             <Helmet>

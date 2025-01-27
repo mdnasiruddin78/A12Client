@@ -15,7 +15,7 @@ const SocialLogin = () => {
     const handleGooleLogin = () => {
         googleSignIn()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 const user = result.user;
                 setUser(user)
                 navigate(location?.state ? location.state : '/')
@@ -26,7 +26,7 @@ const SocialLogin = () => {
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         navigate('/');
                     })
             })

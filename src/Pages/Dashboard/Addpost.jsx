@@ -28,7 +28,7 @@ const Addpost = () => {
                 'content-type': 'multipart/form-data'
             },
         })
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.success) {
             const addPost = {
                 name: data.name,
@@ -40,10 +40,10 @@ const Addpost = () => {
                 time: Date(),
                 vote: 0,
             }
-            console.log(addPost)
+            // console.log(addPost)
             axiosSecure.post('/addPost', addPost)
                 .then(res => {
-                    console.log(res.data)
+                    // console.log(res.data)
                     if (res.data.insertedId) {
                         reset()
                         toast.success('Post Successfully Added!')
@@ -80,7 +80,7 @@ const Addpost = () => {
             return res.data
         }
     })
-    console.log(memberShip)
+    // console.log(memberShip)
     return (
         <div>
             <Helmet>
