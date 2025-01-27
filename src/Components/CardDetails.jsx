@@ -142,11 +142,11 @@ const CardDetails = () => {
                     <div className="flex items-center justify-between mt-4 text-gray-500">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
-                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
+                                <button disabled={details.vote?.[0] === user?.email} onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
                                 <p className="text-xl font-bold text-green-500">{vote?.length || 0}</p>
                             </span>
                             <span className="flex items-center">
-                                <button disabled={details.vote < 1} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
+                                <button disabled={details.vote?.length < 0 || details.vote?.[0] === user?.email} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
                             </span>
                         </div>
                         <FacebookShareButton url={shareUrl}>
