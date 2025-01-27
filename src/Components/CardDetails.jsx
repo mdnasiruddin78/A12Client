@@ -84,6 +84,9 @@ const CardDetails = () => {
     }
 
     const handleUpvote = details => {
+        if (details.vote?.[0] === user?.email) {
+            return
+        }
         const emailCollection = [...vote, user?.email]
         const voteInfo = {
             vote: emailCollection,
@@ -97,6 +100,9 @@ const CardDetails = () => {
     }
 
     const handleDowneVote = details => {
+        if (details.vote?.[0] === user?.email) {
+            return
+        }
         const emailCollection = [...vote, user?.email]
         const voteInfo = {
             vote: emailCollection,
