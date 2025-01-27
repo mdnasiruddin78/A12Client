@@ -21,7 +21,7 @@ const HomeMiddle = () => {
     })
 
     const handleSort = () => {
-        const sortBy = [...recivedData].sort((a, b) => b.vote - a.vote);
+        const sortBy = [...recivedData].sort((a, b) => b.vote?.length - a.vote?.length);
         setSort(sortBy);
     }
 

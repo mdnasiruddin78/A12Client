@@ -79,7 +79,7 @@ const Mypost = () => {
                                     {myPost.title}
                                 </td>
                                 <td>
-                                    {myPost?.vote}
+                                    {myPost?.vote?.length}
                                 </td>
                                 <td>
                                     <Link to={`/dashboard/comment/${myPost._id}`} className="btn btn-ghost btn-xs"><FaCommentDots className="text-2xl text-blue-600" /></Link>
