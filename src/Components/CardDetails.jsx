@@ -84,32 +84,26 @@ const CardDetails = () => {
     }
 
     const handleUpvote = details => {
-        if (details.vote?.[0] === user?.email) {
-            return
-        }
         const emailCollection = [...vote, user?.email]
         const voteInfo = {
             vote: emailCollection,
         }
-        console.log(voteInfo)
+        // console.log(voteInfo)
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 refetch()
             })
     }
 
     const handleDowneVote = details => {
-        if (details.vote?.[0] === user?.email) {
-            return
-        }
         const emailCollection = [...vote, user?.email]
         const voteInfo = {
             vote: emailCollection,
         }
         axiosPublic.patch(`/voteCount/${details._id}`, voteInfo)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 refetch()
             })
     }
@@ -146,7 +140,7 @@ const CardDetails = () => {
                                 <p className="text-xl font-bold text-green-500">{vote?.length || 0}</p>
                             </span>
                             <span className="flex items-center">
-                                <button disabled={details.vote?.length < 0 || details.vote?.[0] === user?.email} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
+                                <button disabled={details.vote?.[0] === user?.email} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
                             </span>
                         </div>
                         <FacebookShareButton url={shareUrl}>
