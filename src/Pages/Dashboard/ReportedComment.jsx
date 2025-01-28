@@ -8,11 +8,10 @@ const ReportedComment = () => {
 
     const axiosSecure = UseAxiosSecure()
 
-    const { data: reportComment = [],refetch } = useQuery({
+    const { data: reportComment = [] } = useQuery({
         queryKey: ['reportComment'],
         queryFn: async () => {
             const res = await axiosSecure.get('/feedback')
-            refetch()
             return res.data
         }
     })
