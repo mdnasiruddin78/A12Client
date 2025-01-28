@@ -24,7 +24,6 @@ const Dashboard = () => {
     const { logoutUser } = useContext(authContext)
     const [notificaion] = UseNotification()
     const location = useLocation()
-    const navigate = useNavigate()
 
     const handleLogout = () => {
         logoutUser()

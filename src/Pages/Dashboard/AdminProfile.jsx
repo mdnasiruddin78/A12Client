@@ -43,11 +43,10 @@ const AdminProfile = () => {
             })
     }
 
-    const { data: recivedData = [],refetch } = useQuery({
+    const { data: recivedData = []} = useQuery({
         queryKey: ['recivedData'],
         queryFn: async () => {
             const res = await axiosSecure.get('/addPost')
-            refetch()
             setRecived(res.data)
             return res.data
         }
@@ -57,7 +56,6 @@ const AdminProfile = () => {
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
-            refetch()
             setAllUser(res.data)
             return res.data;
         }
@@ -67,7 +65,6 @@ const AdminProfile = () => {
         queryKey: ['comment'],
         queryFn: async () => {
             const res = await axiosSecure.get('/allComment')
-            refetch()
             setComments(res.data)
             return res.data;
         }
@@ -91,7 +88,7 @@ const AdminProfile = () => {
             <div className="flex space-x-4 py-4">
                 <div className="flex items-center space-x-3">
                     <div>
-                        <h3>Total-Users</h3>
+                        <h3>Users</h3>
                     </div>
                     <div className="flex items-center space-x-3">
                         <FaUsers />
@@ -100,7 +97,7 @@ const AdminProfile = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                     <div>
-                        <h3>Total-Posts</h3>
+                        <h3>Posts</h3>
                     </div>
                     <div className="flex items-center space-x-3">
                         <BsFillPostcardFill className="text-xl" />
@@ -109,7 +106,7 @@ const AdminProfile = () => {
                 </div>
                 <div className="flex items-center space-x-3">
                     <div>
-                        <h3>Total-Comments</h3>
+                        <h3>Comments</h3>
                     </div>
                     <div className="flex items-center space-x-3">
                         <FaCommentDots className="text-xl" />
