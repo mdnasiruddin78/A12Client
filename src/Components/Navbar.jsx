@@ -27,7 +27,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex justify-between items-center backdrop-blur lg:px-7 px-4 py-2 bg-[#262626]">
+        <div className="flex justify-between items-center lg:px-7 px-4 py-2 bg-[#262626]">
             <div className="dropdown lg:hidden md:hidden flex">
                 <div tabIndex={0} role="button"><HiMenuAlt1 className='text-3xl text-white' /></div>
                 <ul tabIndex={0} className="dropdown-content menu text-black bg-base-200 font-bold rounded-box z-[1] w-44 p-2">
