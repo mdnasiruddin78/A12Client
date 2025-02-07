@@ -6,7 +6,7 @@ import RightNavbar from "../Components/RightNavbar";
 
 const Home = () => {
     return (
-        <div className="bg-base-300">
+        <div className="bg-[#181818]">
             <Helmet>
                 <title>BlogSpace | Home</title>
             </Helmet>

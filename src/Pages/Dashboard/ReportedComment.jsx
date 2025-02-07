@@ -21,11 +21,11 @@ const ReportedComment = () => {
             <Helmet>
                 <title>Dashboard | Reported-Comment</title>
             </Helmet>
-            <h3 className="text-xl font-bold">Reported Activities:</h3>
+            <h3 className="text-xl font-bold text-white">Reported Activities:</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="text-white">
                             <th>Serial</th>
                             <th>Report By</th>
                             <th>Report Email</th>

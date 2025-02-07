@@ -41,7 +41,7 @@ const MyprofileCard = ({ myPost }) => {
 
     return (
         <div className="">
-            <div className="lg:w-[550px] p-5 bg-white shadow-lg rounded-lg">
+            <div className="lg:w-[550px] p-5 bg-[#262626] shadow-lg rounded-lg">
                 <div className="flex items-center mb-4">
                     <img
                         src={image}
@@ -49,17 +49,17 @@ const MyprofileCard = ({ myPost }) => {
                         className="w-12 h-12 rounded-full border-2 border-blue-500"
                     />
                     <div className="ml-4">
-                        <h2 className="font-semibold text-lg text-gray-800">{name}</h2>
+                        <h2 className="font-semibold text-lg text-white">{name}</h2>
                         <p className="text-gray-500 text-sm">{tag} • {timeAgo(newDate)}</p>
                     </div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-800 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                     {title}
                 </h3>
-                <p className="text-gray-600 break-all">
+                <p className="text-white break-all">
                     {description}
                 </p>
-                <div className="flex items-center justify-between mt-4 text-gray-500">
+                <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center space-x-2">
                         <span className="flex items-center">
                             <span className="ml-1 text-green-500">Vote Count • {vote?.length}</span>

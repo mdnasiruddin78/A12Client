@@ -45,11 +45,11 @@ const TakeAction = () => {
       <Helmet>
         <title>Dashboard | Take-Actionform</title>
       </Helmet>
-      <h3 className="text-xl font-bold">Send A Message:</h3>
+      <h3 className="text-xl font-bold text-white">Send A Message:</h3>
       <div className="mt-5">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           <div>
-            <p>Report Email:</p>
+            <p className="text-white">Report Email:</p>
             <input {...register("email", { required: true })}
               defaultValue={recivedData?.reportEmail}
               readOnly
@@ -59,14 +59,14 @@ const TakeAction = () => {
             />
           </div>
           <div>
-            <p>Date:</p>
+            <p className="text-white">Date:</p>
             <DatePicker
               className='border p-2 rounded-md border-black'
               selected={startDate}
               onChange={(date) => setStartDate(date)} />
           </div>
           <div>
-            <p>Restriction:</p>
+            <p className="text-white">Restriction:</p>
             <input {...register("title", { required: true })}
               defaultValue={recivedData?.reaction}
               readOnly
@@ -76,7 +76,7 @@ const TakeAction = () => {
             />
           </div>
           <div>
-            <p>Report Comment:</p>
+            <p className="text-white">Report Comment:</p>
             <textarea {...register("reportText", { required: true })}
               defaultValue={recivedData?.comment}
               readOnly
@@ -86,14 +86,14 @@ const TakeAction = () => {
             />
           </div>
           <div>
-            <p>Description:</p>
+            <p className="text-white">Description:</p>
             <textarea {...register("description", { required: true })}
               type="text"
               placeholder="Description"
               className='block lg:w-1/2 w-full px-4 py-2 text-gray-700 bg-white border rounded-lg  border-black  focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
             />
           </div>
-          <button className="btn adminColor">Submit</button>
+          <button className="btn bg-blue-700 border-none text-white">Submit</button>
         </form>
       </div>
     </div>

@@ -57,11 +57,11 @@ const Register = () => {
     }
 
     return (
-        <div className='flex justify-center items-center bg-base-200'>
+        <div className='flex justify-center items-center bg-[#181818]'>
             <Helmet>
                 <title>BlogSpace | Register</title>
             </Helmet>
-            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg border-2 border-black my-10'>
+            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg my-10'>
                 <div className='w-full px-6 py-8 md:px-8'>
                     <div className='flex justify-center mx-auto'>
                         <img className='w-auto h-7 sm:h-8' src="" alt='' />

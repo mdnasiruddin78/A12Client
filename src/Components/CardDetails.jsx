@@ -109,13 +109,13 @@ const CardDetails = () => {
     }
 
     return (
-        <div className="bg-base-300 min-h-screen p-5">
+        <div className="bg-[#181818] min-h-screen p-5">
             <Helmet>
                 <title>BlogSpace | Post-Details</title>
             </Helmet>
-            <h3 className="text-xl text-center">Post Deatals</h3>
+            <h3 className="text-xl text-center text-white">Post Deatals</h3>
             <div className="flex justify-center">
-                <div className="w-[550px] p-5 bg-white shadow-lg rounded-lg">
+                <div className="w-[550px] p-5 bg-[#262626] shadow-lg rounded-lg">
                     <div className="flex items-center mb-4">
                         <img
                             src={image}
@@ -123,17 +123,17 @@ const CardDetails = () => {
                             className="w-12 h-12 rounded-full border-2 border-blue-500"
                         />
                         <div className="ml-4">
-                            <h2 className="font-semibold text-lg text-gray-800">{name}</h2>
+                            <h2 className="font-semibold text-lg text-white">{name}</h2>
                             <p className="text-gray-500 text-sm">{tag} • {timeAgo(newDate)}</p>
                         </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl font-bold text-white mb-3">
                         {title}
                     </h3>
-                    <p className="text-gray-600 break-all">
+                    <p className="text-white break-all">
                         {description}
                     </p>
-                    <div className="flex items-center justify-between mt-4 text-gray-500">
+                    <div className="flex items-center justify-between mt-4 text-white">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
                                 <button disabled={details.vote?.[0] === user?.email} onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
@@ -149,19 +149,19 @@ const CardDetails = () => {
                     </div>
                 </div>
             </div>
-            <h3 className="text-xl text-center mt-5">Comment Section</h3>
+            <h3 className="text-xl text-center mt-5 text-white">Comment Section</h3>
             <div className="flex justify-center">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     <div>
-                        <p>Description:</p>
+                        <p className="text-white">Description:</p>
                         <textarea {...register("description", { required: true })}
                             type="text"
                             placeholder="Description"
-                            className='px-4 py-2 w-80 border-2 border-black rounded-md text-gray-700'
+                            className='px-4 py-2 w-80 bg-[#262626] text-white rounded-md'
                         />
                     </div>
                     <div className="flex justify-center">
-                        <button className="btn adminColor">Comment</button>
+                        <button className="btn bg-blue-700 text-white border-none">Comment</button>
                     </div>
                 </form>
             </div>

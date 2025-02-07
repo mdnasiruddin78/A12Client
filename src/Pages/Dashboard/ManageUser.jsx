@@ -84,13 +84,13 @@ const ManageUser = () => {
                 <title>Dashboard | Manage-Users</title>
             </Helmet>
             <div className="flex justify-around">
-                <h3 className="text-xl font-semibold">All Users</h3>
-                <h3 className="text-xl font-semibold">Total Users: {users.length}</h3>
+                <h3 className="text-xl font-semibold text-white">All Users</h3>
+                <h3 className="text-xl font-semibold text-white">Total Users: {users.length}</h3>
             </div>
             <div className="divider"></div>
             <div className="flex justify-end">
                 <input
-                    className='input input-bordered w-full max-w-xs'
+                    className='input input-bordered w-full max-w-xs text-white border-gray-500 bg-[#202020] focus:border-white'
                     type='text'
                     name='search'
                     onChange={e => setSearch(e.target.value)}
@@ -103,7 +103,7 @@ const ManageUser = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-white">
                             <th>Serial</th>
                             <th>User Name</th>
                             <th>User email</th>
@@ -115,15 +115,15 @@ const ManageUser = () => {
                     <tbody>
                         {
                             users.map((user, index) => <tr key={user._id}>
-                                <th>
+                                <th className="text-white">
                                     {index + 1}
                                 </th>
                                 <td>
                                     <div className="flex items-center gap-3">
-                                        <div className="font-semibold">{user?.name}</div>
+                                        <div className="font-semibold text-white">{user?.name}</div>
                                     </div>
                                 </td>
-                                <td className="font-semibold">
+                                <td className="font-semibold text-white">
                                     {user?.email}
                                 </td>
                                 <td>

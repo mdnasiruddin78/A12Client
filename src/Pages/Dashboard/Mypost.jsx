@@ -56,12 +56,12 @@ const Mypost = () => {
             <Helmet>
                 <title>Dashboard | My-Post</title>
             </Helmet>
-            <h3 className="text-xl font-bold">My Posts:</h3>
+            <h3 className="text-xl font-bold text-white">My Posts:</h3>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
                     <thead >
-                        <tr>
+                        <tr className="text-white">
                             <th>Serial</th>
                             <th>Post Title</th>
                             <th>Number of votes</th>
@@ -72,13 +72,13 @@ const Mypost = () => {
                     <tbody>
                         {
                             myPosts.map((myPost, index) => <tr key={myPost._id}>
-                                <th>
+                                <th className="text-white">
                                     {index + 1}
                                 </th>
-                                <td>
+                                <td className="text-white">
                                     {myPost.title}
                                 </td>
-                                <td>
+                                <td className="text-white">
                                     {myPost?.vote?.length}
                                 </td>
                                 <td>

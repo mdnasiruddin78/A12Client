@@ -24,7 +24,7 @@ const MessageByAdmin = () => {
             <Helmet>
                 <title>Dashboard | Admin-Message</title>
             </Helmet>
-            <h3 className="text-xl font-bold mb-3">Message By Admin:</h3>
+            <h3 className="text-xl font-bold mb-3 text-white">Message By Admin:</h3>
             <div className="grid grid-cols-1 gap-4">
                 {
                     getData.map(data => <AdminMessage key={data._id} data={data}></AdminMessage>)

@@ -29,7 +29,7 @@ const Comment = () => {
                 <table className="table">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="text-white">
                             <th>Serial</th>
                             <th>Email</th>
                             <th>Comment text</th>
@@ -40,7 +40,7 @@ const Comment = () => {
                     <tbody>
                         {
                             comments.map((comment, index) => <ReportToAdmin
-                                key={comment._id} unikeId={id} refetch={refetch}
+                                key={comment._id} refetch={refetch}
                                 comment={comment} index={index}></ReportToAdmin>)
                         }
                     </tbody>

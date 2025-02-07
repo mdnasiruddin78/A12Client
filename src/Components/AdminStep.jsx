@@ -14,7 +14,7 @@ const AdminStep = ({ report, index }) => {
 
     return (
         <tr>
-            <th>
+            <th className="text-white">
                 {index + 1}
             </th>
             <td>
@@ -23,10 +23,10 @@ const AdminStep = ({ report, index }) => {
             <td>
                 <p className="font-bold text-red-500">{reportEmail}</p>
             </td>
-            <td>
+            <td className="text-white">
                 {comment.substring(0, 20)}<span onClick={() => handleReadMore(comment)} className="btn btn-ghost btn-xs text-blue-800">...Read More</span>
             </td>
-            <th>
+            <th className="text-white">
                 {reaction}
             </th>
             <th>

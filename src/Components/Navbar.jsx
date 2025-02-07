@@ -27,9 +27,9 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex justify-between items-center backdrop-blur lg:px-7 px-4 py-2">
+        <div className="flex justify-between items-center backdrop-blur lg:px-7 px-4 py-2 bg-[#262626]">
             <div className="dropdown lg:hidden md:hidden flex">
-                <div tabIndex={0} role="button"><HiMenuAlt1 className='text-3xl text-black' /></div>
+                <div tabIndex={0} role="button"><HiMenuAlt1 className='text-3xl text-white' /></div>
                 <ul tabIndex={0} className="dropdown-content menu text-black bg-base-200 font-bold rounded-box z-[1] w-44 p-2">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/membership">Membership</NavLink></li>
@@ -37,7 +37,7 @@ const Navbar = () => {
             </div>
             <div className="flex items-center lg:gap-10 md:gap-10">
                 <Link to="/"><img className="h-10 rounded-md hidden lg:flex md:flex" src={logo} alt="" /></Link>
-                <div className="flex items-center space-x-5">
+                <div className="flex items-center space-x-5 text-white">
                     <NavLink to='/' className='font-bold lg:flex md:flex hidden'>Home</NavLink>
                     <NavLink to='/membership' className='font-bold lg:flex md:flex hidden'>Membership</NavLink>
                 </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
                 {
                     user && user?.email ? <div className="flex items-center space-x-5">
                         <Badge content={`${notificaion.length}`} withBorder>
-                            <IoNotifications className="text-2xl" />
+                            <IoNotifications className="text-2xl text-white" />
                         </Badge>
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button"><img className="w-12 h-12 rounded-full border-2 border-blue-500" src={user?.photoURL} alt="not found" /></div>
@@ -61,9 +61,9 @@ const Navbar = () => {
                         :
                         <div className="flex items-center space-x-5">
                             <Badge content={`${notificaion.length}`} withBorder>
-                                <IoNotifications className="text-2xl" />
+                                <IoNotifications className="text-2xl text-white" />
                             </Badge>
-                            <Link to="/login" className="btn adminColor rounded-md">Join US</Link>
+                            <Link to="/login" className="btn bg-blue-700 text-white border-none rounded-md">Join US</Link>
                         </div>
                 }
             </div>

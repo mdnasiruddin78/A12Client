@@ -5,7 +5,7 @@ import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 
 
-const ReportToAdmin = ({ comment, index, unikeId ,refetch}) => {
+const ReportToAdmin = ({ comment,index,refetch}) => {
 
     const { _id, email, description } = comment
     const [feedback, setFeedback] = useState()
@@ -43,17 +43,17 @@ const ReportToAdmin = ({ comment, index, unikeId ,refetch}) => {
 
     return (
         <tr>
-            <th>
+            <th className="text-white">
                 {index + 1}
             </th>
             <td>
                 <div className="flex items-center gap-3">
                     <div>
-                        <div className="font-bold">{email}</div>
+                        <div className="font-bold text-white">{email}</div>
                     </div>
                 </div>
             </td>
-            <td>
+            <td className="text-white">
                 {description.substring(0, 20)}<span onClick={() => handleReadMore(description)} className="btn btn-ghost btn-xs text-blue-800">...Read More</span>
             </td>
             <th>

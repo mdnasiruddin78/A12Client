@@ -87,12 +87,12 @@ const Addpost = () => {
                 <title>Dashboard | Add-Post</title>
             </Helmet>
             <div className="mb-3">
-                <h1 className="text-xl font-bold">Add Service:</h1>
+                <h1 className="text-xl font-bold text-white">Add Service:</h1>
             </div>
             <div>
                 {
                     !memberShip?.[0]?.status && myPosts.length > 5 ? <Link to="/membership" className="btn adminColor">Become a Member</Link> : <div className="card bg-white w-full rounded-xl">
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body rounded-md border-2 border-gray-500">
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body rounded-md">
                             {/* form first row */}
                             <div className='flex flex-col lg:flex-row gap-5'>
                                 <div className="form-control flex-1">

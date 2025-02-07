@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import UseAxiosPublic from '../Hooks/UseAxiosPublic';
-import './index/index.css';
 
 
 const LeftNavbar = () => {
@@ -16,10 +15,10 @@ const LeftNavbar = () => {
     })
     
     return (
-        <div className="adminColor rounded-md text-center space-y-5 py-3">
-           <h3 className="font-semibold">Use These Tags To Search</h3>
+        <div className="bg-[#262626] rounded-md text-center space-y-5 py-3 mt-5">
+           <h3 className="font-semibold text-white">Use These Tags To Search</h3>
           {
-            allTag.map(tag => <ul key={tag._id}><li>{tag.tag}</li></ul>)
+            allTag.map(tag => <ul key={tag._id}><li className='text-white'>{tag.tag}</li></ul>)
           }
         </div>
     );

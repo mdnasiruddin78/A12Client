@@ -32,22 +32,22 @@ const MyProfile = () => {
             <Helmet>
                 <title>Dashboard | My-Profile</title>
             </Helmet>
-            <h3 className="text-xl font-bold">My Profile:</h3>
+            <h3 className="text-xl font-bold text-white">My Profile:</h3>
             <div className="flex items-center space-x-4">
                 <div>
                     <img className="w-32 h-32 rounded-full border-2 border-blue-500" src={user?.photoURL} alt="" />
                 </div>
                 <div>
-                    <p className="">Name: {user?.displayName}</p>
-                    <p className="">Email: {user?.email}</p>
+                    <p className="text-white">Name: {user?.displayName}</p>
+                    <p className="text-white">Email: {user?.email}</p>
                     <div>
                         {
-                            users?.badge === 'Gold' ? <div>Badge: <p className="btn btn-ghost btn-xs bg-orange-500">Gold</p></div> : <div>Badge: <p className="btn btn-ghost btn-xs bg-brown-600 text-white">Bronze</p></div>
+                            users?.badge === 'Gold' ? <div className="text-white">Badge: <p className="btn btn-ghost btn-xs bg-orange-500">Gold</p></div> : <div className="text-white">Badge: <p className="btn btn-ghost btn-xs bg-brown-600">Bronze</p></div>
                         }
                     </div>
                 </div>
             </div>
-            <h3 className="text-xl font-bold py-4">My 3 Recent Posts:</h3>
+            <h3 className="text-xl font-bold py-4 text-white">My 3 Recent Posts:</h3>
             <div className="grid grid-cols-1 gap-4">
                 {
                     myPosts && myPosts.length > 0 ? myPosts.map(myPost => <MyprofileCard key={myPost._id} myPost={myPost}></MyprofileCard>) : <p className="text-red-500">You Have No Posts</p>

@@ -29,7 +29,7 @@ const HomeMiddle = () => {
         <div>
             <div className='flex justify-between gap-3 py-5'>
                 <input
-                    className='input input-bordered w-full max-w-xs'
+                    className='input input-bordered text-white w-full max-w-xs border-gray-500 bg-[#202020] focus:border-white'
                     type='text'
                     name='search'
                     onChange={e => setSearch(e.target.value)}
@@ -37,7 +37,7 @@ const HomeMiddle = () => {
                     placeholder='Enter A Tag Name'
                     aria-label='Enter A Tag Name'
                 />
-                <button onClick={handleSort} className="btn adminColor">Sort by popularity</button>
+                <button onClick={handleSort} className="btn bg-blue-700 border-none text-white">Sort by popularity</button>
             </div>
             <div className="grid grid-cols-1 gap-4">
                 {
