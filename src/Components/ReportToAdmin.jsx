@@ -5,7 +5,7 @@ import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 
 
-const ReportToAdmin = ({ comment,index,refetch}) => {
+const ReportToAdmin = ({ comment, index, refetch }) => {
 
     const { _id, email, description } = comment
     const [feedback, setFeedback] = useState()
@@ -31,12 +31,12 @@ const ReportToAdmin = ({ comment,index,refetch}) => {
             .then(res => {
                 // console.log(res.data)
                 if (res.data.insertedId) {
-                    axiosSecure.patch(`/allComment/${_id}`, {reaction: feedback})
-                    .then(res => {
-                        // console.log(res.data)
-                        refetch()
-                        toast.success('Report Done')
-                    })
+                    axiosSecure.patch(`/allComment/${_id}`, { reaction: feedback })
+                        .then(res => {
+                            // console.log(res.data)
+                            refetch()
+                            toast.success('Report Done')
+                        })
                 }
             })
     }

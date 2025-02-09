@@ -10,7 +10,7 @@ const Comment = () => {
     const { id } = useParams()
     const axiosSecure = UseAxiosSecure()
 
-    const { data: comments = [],refetch } = useQuery({
+    const { data: comments = [], refetch } = useQuery({
         queryKey: ['comments'],
         queryFn: async () => {
             const res = await axiosSecure.get(`/allComment/${id}`)

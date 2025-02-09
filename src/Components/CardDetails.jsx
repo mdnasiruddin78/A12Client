@@ -14,7 +14,6 @@ import { useContext, useState } from "react";
 import { authContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { button } from "@material-tailwind/react";
 
 
 const CardDetails = () => {
@@ -136,11 +135,11 @@ const CardDetails = () => {
                     <div className="flex items-center justify-between mt-4 text-white">
                         <div className="flex items-center space-x-2">
                             <span className="flex items-center">
-                                <button disabled={details.vote?.[0] === user?.email} onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
+                                <button onClick={() => handleUpvote(details)} className="btn btn-xs"><FaArrowUp />Upvote</button> •
                                 <p className="text-xl font-bold text-green-500">{vote?.length || 0}</p>
                             </span>
                             <span className="flex items-center">
-                                <button disabled={details.vote?.[0] === user?.email} onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
+                                <button onClick={() => handleDowneVote(details)} className="btn btn-xs"><FaArrowDown />Downvote</button>
                             </span>
                         </div>
                         <FacebookShareButton url={shareUrl}>
@@ -157,7 +156,7 @@ const CardDetails = () => {
                         <textarea {...register("description", { required: true })}
                             type="text"
                             placeholder="Description"
-                            className='px-4 py-2 w-80 bg-[#262626] text-white rounded-md'
+                            className='px-4 py-2 w-80 bg-[#262626] border border-gray-500 text-white rounded-md'
                         />
                     </div>
                     <div className="flex justify-center">
