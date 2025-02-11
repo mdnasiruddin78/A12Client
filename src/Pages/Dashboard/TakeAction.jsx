@@ -15,8 +15,8 @@ const TakeAction = () => {
   const { register, handleSubmit } = useForm();
   const [startDate, setStartDate] = useState(new Date());
 
-  const { data: recivedData = []} = useQuery({
-    queryKey: ['recivedData',email],
+  const { data: recivedData = [] } = useQuery({
+    queryKey: ['recivedData', email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/filter/${email}`)
       return res.data
@@ -25,10 +25,10 @@ const TakeAction = () => {
 
   const onSubmit = (data) => {
     const restriction = {
-      email: data.email,
+      email: recivedData?.reportEmail,
       date: startDate,
-      title: data.title,
-      reportText: data.reportText,
+      title: recivedData?.reaction,
+      reportText: recivedData?.comment,
       description: data.description,
     }
     axiosSecure.post('/restrictionMessage', restriction)
@@ -50,7 +50,7 @@ const TakeAction = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
           <div>
             <p className="text-white">Report Email:</p>
-            <input {...register("email", { required: true })}
+            <input {...register("email")}
               defaultValue={recivedData?.reportEmail}
               readOnly
               type="text"
@@ -67,7 +67,7 @@ const TakeAction = () => {
           </div>
           <div>
             <p className="text-white">Restriction:</p>
-            <input {...register("title", { required: true })}
+            <input {...register("title")}
               defaultValue={recivedData?.reaction}
               readOnly
               type="text"
@@ -77,7 +77,7 @@ const TakeAction = () => {
           </div>
           <div>
             <p className="text-white">Report Comment:</p>
-            <textarea {...register("reportText", { required: true })}
+            <textarea {...register("reportText")}
               defaultValue={recivedData?.comment}
               readOnly
               type="text"

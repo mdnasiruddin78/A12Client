@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import '../../Components/index/index.css';
 import UseAxiosPublic from "../../Hooks/UseAxiosPublic";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -91,7 +90,7 @@ const Addpost = () => {
             </div>
             <div>
                 {
-                    !memberShip?.[0]?.status && myPosts.length > 5 ? <Link to="/membership" className="btn adminColor">Become a Member</Link> : <div className="card bg-white w-full rounded-xl">
+                    !memberShip?.[0]?.status && myPosts.length > 5 ? <Link to="/membership" className="btn bg-blue-700 border-none text-white">Become a Member</Link> : <div className="card bg-white w-full rounded-xl">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body rounded-md">
                             {/* form first row */}
                             <div className='flex flex-col lg:flex-row gap-5'>
