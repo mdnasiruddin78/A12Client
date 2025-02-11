@@ -73,5 +73,5 @@
 ---
 
 ### live project links : 
-- https://zingy-sunshine-2e5cd3.netlify.app
+- https://a12-blog-space-online.netlify.app
 
