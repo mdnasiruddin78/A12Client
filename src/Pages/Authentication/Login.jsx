@@ -59,7 +59,7 @@ const Login = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className='mt-4'>
                             <label
-                                className='block mb-2 text-sm font-medium text-gray-600 '
+                                className='block mb-2 text-sm font-medium text-gray-500 '
                                 htmlFor='LoggingEmailAddress'
                             >
                                 Email Address
@@ -67,9 +67,10 @@ const Login = () => {
                             <input
                                 id='LoggingEmailAddress'
                                 autoComplete='email'
+                                placeholder="enter your email"
                                 name='email'
                                 {...register("email", { required: true })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                                className='block w-full bg-[#181818] px-4 py-2 text-white border border-gray-500 focus:outline-none rounded-lg focus:border-white'
                                 type='email'
                             />
                         </div>
@@ -77,7 +78,7 @@ const Login = () => {
                         <div className='mt-4'>
                             <div className='flex justify-between'>
                                 <label
-                                    className='block mb-2 text-sm font-medium text-gray-600 '
+                                    className='block mb-2 text-sm font-medium text-gray-500 '
                                     htmlFor='loggingPassword'
                                 >
                                     Password
@@ -87,9 +88,10 @@ const Login = () => {
                             <input
                                 id='loggingPassword'
                                 autoComplete='current-password'
+                                placeholder="your password"
                                 name='password'
                                 {...register("password", { required: true })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                                className='block w-full px-4 py-2 text-white bg-[#181818] border-gray-500 border rounded-lg focus:border-white focus:outline-none'
                                 type='password'
                             />
                         </div>
