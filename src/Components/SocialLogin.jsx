@@ -35,7 +35,7 @@ const SocialLogin = () => {
     return (
         <div
             onClick={handleGooleLogin}
-            className='flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 '
+            className='flex cursor-pointer items-center justify-center mt-4 text-gray-500 transition-colors duration-300 transform border border-gray-500 hover:border-white rounded-lg '
         >
             <div className='px-4 py-2'>
                 <svg className='w-6 h-6' viewBox='0 0 40 40'>
