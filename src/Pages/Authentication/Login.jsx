@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
-    const {signInUser,setUser} = useContext(authContext)
+    const { signInUser, setUser } = useContext(authContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const location = useLocation()
@@ -17,16 +17,16 @@ const Login = () => {
     const onSubmit = data => {
         // console.log(data)
         signInUser(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            setUser(user)
-            navigate(location?.state? location.state : '/')
-            toast.success('Login Successfull')
-        })
-        .catch(error => {
-            // console.log(error)
-            toast.error(error.message)
-        })
+            .then(result => {
+                const user = result.user;
+                setUser(user)
+                navigate(location?.state ? location.state : '/')
+                toast.success('Login Successfull')
+            })
+            .catch(error => {
+                // console.log(error)
+                toast.error(error.message)
+            })
         reset()
     }
 
@@ -110,7 +110,7 @@ const Login = () => {
 
                         <Link
                             to='/register'
-                            className='text-xs font-semibold uppercase text-gray-500  hover:underline'
+                            className='text-xs font-semibold uppercase text-white  hover:underline'
                         >
                             or sign up
                         </Link>
