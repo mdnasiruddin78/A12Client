@@ -61,12 +61,12 @@ const Register = () => {
             <Helmet>
                 <title>BlogSpace | Register</title>
             </Helmet>
-            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-white rounded-lg my-10'>
+            <div className='flex w-full max-w-lg mx-auto overflow-hidden bg-[#262626] rounded-lg my-10'>
                 <div className='w-full px-6 py-8 md:px-8'>
                     <div className='flex justify-center mx-auto'>
                         <img className='w-auto h-7 sm:h-8' src="" alt='' />
                     </div>
-                    <p className='mt-3 text-xl text-center text-gray-600 '>
+                    <p className='mt-3 text-xl text-center text-white '>
                         Register Now!
                     </p>
 
@@ -87,7 +87,7 @@ const Register = () => {
                     >
                         <div className='mt-4'>
                             <label
-                                className='block mb-2 text-sm font-medium text-gray-600 '
+                                className='block mb-2 text-sm font-medium text-gray-500 '
                                 htmlFor='name'
                             >
                                 Username
@@ -95,24 +95,25 @@ const Register = () => {
                             <input
                                 id='name'
                                 autoComplete='name'
+                                placeholder="enter your name"
                                 name='name'
                                 {...register("name", { required: true })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                                className='block w-full px-4 py-2 text-white bg-[#181818]  border border-gray-500 focus:border-white rounded-lg focus:outline-none '
                                 type='text'
                             />
                         </div>
                         <div className='mt-4'>
                             <label
-                                className='block mb-2 text-sm font-medium text-gray-600 '
+                                className='block mb-2 text-sm font-medium text-gray-500 '
                                 htmlFor='photo'
                             >
-                               User Image
+                                User Image
                             </label>
                             <input {...register('image', { required: true })} type="file" className="file-input w-full max-w-xs" />
                         </div>
                         <div className='mt-4'>
                             <label
-                                className='block mb-2 text-sm font-medium text-gray-600 '
+                                className='block mb-2 text-sm font-medium text-gray-500 '
                                 htmlFor='LoggingEmailAddress'
                             >
                                 Email Address
@@ -120,9 +121,10 @@ const Register = () => {
                             <input
                                 id='LoggingEmailAddress'
                                 autoComplete='email'
+                                placeholder="enter your email"
                                 name='email'
                                 {...register("email", { required: true })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                                className='block w-full px-4 py-2 text-white rounded-lg bg-[#181818] border-gray-500 border focus:border-white'
                                 type='email'
                             />
                         </div>
@@ -130,7 +132,7 @@ const Register = () => {
                         <div className='mt-4'>
                             <div className='flex justify-between'>
                                 <label
-                                    className='block mb-2 text-sm font-medium text-gray-600 '
+                                    className='block mb-2 text-sm font-medium text-gray-500 '
                                     htmlFor='loggingPassword'
                                 >
                                     Password
@@ -140,6 +142,7 @@ const Register = () => {
                             <input
                                 id='loggingPassword'
                                 autoComplete='current-password'
+                                placeholder="your password"
                                 name='password'
                                 {...register("password", {
                                     required: true,
@@ -147,7 +150,7 @@ const Register = () => {
                                     // maxLength: 20,
                                     // pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
                                 })}
-                                className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
+                                className='block w-full px-4 py-2 text-white rounded-lg bg-[#181818] border-gray-500 border focus:border-white'
                                 type='password'
                             />
                             {/* {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
@@ -158,7 +161,7 @@ const Register = () => {
                         <div className='mt-6'>
                             <button
                                 type='submit'
-                                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
+                                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white bg-blue-700 rounded-lg'
                             >
                                 Sign Up
                             </button>
@@ -170,7 +173,7 @@ const Register = () => {
 
                         <Link
                             to='/login'
-                            className='text-xs uppercase font-semibold hover:underline'
+                            className='text-xs uppercase font-semibold text-white hover:underline'
                         >
                             or sign in
                         </Link>
