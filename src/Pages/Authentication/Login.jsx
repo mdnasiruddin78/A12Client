@@ -41,7 +41,7 @@ const Login = () => {
                         <img className='w-auto h-7 sm:h-8' src="" alt='' />
                     </div>
 
-                    <p className='mt-3 text-xl text-center text-gray-600 '>
+                    <p className='mt-3 text-xl text-center text-white '>
                         Login Now!
                     </p>
 
@@ -96,7 +96,7 @@ const Login = () => {
                         <div className='mt-6'>
                             <button
                                 type='submit'
-                                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-gray-800 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
+                                className='w-full px-6 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-700 rounded-lg hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-50'
                             >
                                 Sign In
                             </button>
@@ -108,7 +108,7 @@ const Login = () => {
 
                         <Link
                             to='/register'
-                            className='text-xs font-semibold uppercase  hover:underline'
+                            className='text-xs font-semibold uppercase text-gray-500  hover:underline'
                         >
                             or sign up
                         </Link>
