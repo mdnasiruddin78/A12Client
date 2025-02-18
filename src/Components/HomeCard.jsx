@@ -32,7 +32,7 @@ const HomeCard = ({ recived }) => {
     const newDate = new Date(time);
 
     return (
-        <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-[#262626] rounded-lg hover:scale-105">
+        <Link to={`/addPost/${_id}`} className="p-5 shadow-lg bg-[#262626] rounded-lg hover:scale-105 transition-transform duration-300">
             <div className="flex items-center mb-4">
                 <img
                     src={image}
