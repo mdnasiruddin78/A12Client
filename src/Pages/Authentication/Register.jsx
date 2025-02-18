@@ -69,8 +69,7 @@ const Register = () => {
                     <p className='mt-3 text-xl text-center text-white '>
                         Register Now!
                     </p>
-
-                    {/* social login part */}
+                    
                     <SocialLogin></SocialLogin>
 
                     <div className='flex items-center justify-between mt-4'>
